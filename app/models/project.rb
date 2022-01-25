@@ -6,7 +6,7 @@ class Project < ApplicationRecord
   validates :location, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :reward_eaned, presence: true
+  validates :reward_earned, presence: true
   validates :points_earned, presence: true, numericality: { only_integer: true }
   validates :user_id, presence: true
 end
