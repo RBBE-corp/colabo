@@ -2,22 +2,25 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update]
 
   def index
-    @projects = Project.all
+    # @projects = Project.all
+    @projects = policy_scope(Project)
   end
 
   def show; end
 
   def new
     @project = Project.new
+    authorize @project
   end
 
   def create
     @project = Project.new(project_params)
     @project.user = current_user
+    authorize @project
     if @project.save
       redirect_to project_path(@project), notice: "Project created."
     else
-      render :new     
+      render :new
     end
   end
 
@@ -38,6 +41,7 @@ class ProjectsController < ApplicationController
   end
 
   def find_project
-    Project.find(params[:id]);
+    @project = Project.find(params[:id])
+    authorize @project
   end
 end
