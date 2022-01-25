@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
       redirect_to project_path(@project), notice: "Project created."
     else
       render :new     
-   end
+    end
   end
 
   def edit; end
