@@ -1,0 +1,11 @@
+  <%= simple_form_for(@project) do |f| %>
+    <%= f.input :project_name %>
+    <%= f.input :description %>
+    <%= f.input :people_required %>
+    <%= f.input :location %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :reward_earned %>
+    <%= f.input :points_earned %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
