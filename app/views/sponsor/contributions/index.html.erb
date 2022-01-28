@@ -1,0 +1,11 @@
+<h1>Index Page for Sponsors Contributions</h1>
+<p>This is the page all contributions will be listed</p>
+<% @contributions.each do |contribution|%>
+  <li>
+    <ul>Status: <%= contribution.status %></ul>
+    <ul>Project Name: <%= contribution.project.project_name %></ul>
+    <ul>Starts: <%= contribution.start_date %></ul>
+    <ul>Ends: <%= contribution.end_date %></ul>
+    <ul><%= link_to 'Details(to contribution#show)', sponsor_contribution_path(contribution) %></ul>
+  </li>
+<% end %>
