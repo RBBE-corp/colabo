@@ -1,11 +1,31 @@
-<h1>Index Page for Sponsors Contributions</h1>
-<p>This is the page all contributions will be listed</p>
-<% @contributions.each do |contribution|%>
-  <li>
-    <ul>Status: <%= contribution.status %></ul>
-    <ul>Project Name: <%= contribution.project.project_name %></ul>
-    <ul>Starts: <%= contribution.start_date %></ul>
-    <ul>Ends: <%= contribution.end_date %></ul>
-    <ul><%= link_to 'Details(to contribution#show)', sponsor_contribution_path(contribution) %></ul>
-  </li>
-<% end %>
+
+<%# Banner Component %>
+<div class="banner">
+  <div class="container">
+    <h1>Index Page for Sponsors Contributions</h1>
+    <p>This is the page all contributions will be listed for each project</p>
+    <p>As you can see the routing and coding is incomplete</p>
+  </div>
+</div>
+
+
+<%# card component %>
+<div class ="card-container">
+  <% @contributions.each do |contribution|%>
+    <div class="card-list">
+      <div class="image-container">
+        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+
+        <div class="card-stats">
+          <ol>
+            <ul>Status: <%= contribution.status %></ul>
+            <ul>Project Name: <%= contribution.project.project_name.capitalize %></ul>
+            <ul>Starts: <%= contribution.start_date %></ul>
+            <ul>Ends: <%= contribution.end_date %></ul>
+            <ul class="link-button"><%= link_to 'Details(to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></ul>
+          </ol>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
