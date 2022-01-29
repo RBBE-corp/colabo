@@ -4,6 +4,6 @@ class PagesController < ApplicationController
   def home
     @projects = Project.all
     # If current user has projects they are a sponsor
-    @sponsor = current_user.projects.count > 1
+    @sponsor = current_user.projects.count > 0
   end
 end
