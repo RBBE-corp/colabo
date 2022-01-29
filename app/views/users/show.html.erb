@@ -1,22 +1,54 @@
 
-<h1>User Profile Page</h1>
-
-<h4>Welcome! <%= current_user.first_name %></h4>
-<h4>User Id: <%= @user_id %></h4>
-
-<h3>My Projects</h3>
-<% @user_projects.each do |project| %>
-  <ul>
-    <li><%= project.project_name %></li>
-    <li><%= link_to 'Project detail', project_path(project) %></li>
-  </ul>
-<% end %>
+<%# Banner Component %>
+<div class="banner">
+  <div class="container">
+    <h1>User Profile Page</h1>
+    <h4>Welcome! <%= current_user.first_name %></h4>
+    <h4>User Id: <%= @user_id %></h4>
+    <p>In the user profile you can see all the projects contributions you created</p>
+  </div>
+</div>
 
 
-<h3>My Contributions</h3>
-<% @user_contributions.each do |contribution| %>
-  <ul>
-    <li>Contribution for <%= contribution.project.project_name %></li>
-    <li><%= link_to 'Contribution detail', sponsor_contribution_path(contribution) %></li>
-  </ul>
-<% end %>
+<%# card component for projects%>
+<div class ="card-container">
+  <% @user_projects.each do |project| %>
+    <div class="card-list">
+      <div class="image-container">
+        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+
+        <div class="card-stats">
+          <ol>
+            <ul>Project name: <%= project.project_name.capitalize %></ul>
+            <ul>Starts: <%= project.start_date %></ul>
+            <ul>Ends: <%= project.end_date %></ul>
+            <ul><%= link_to 'Project detail', project_path(project) %></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<%# card component for contributions %>
+<div class ="card-container">
+  <% @user_contributions.each do |contribution| %>
+    <div class="card-list">
+      <div class="image-container">
+        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+
+        <div class="card-stats">
+          <ol>
+            <ul>Contribution for <%= contribution.project.project_name %></ul>
+            <ul>Status: <%= contribution.status %></ul>
+            <ul>Project Name: <%= contribution.project.project_name.capitalize %></ul>
+            <ul>Starts: <%= contribution.start_date %></ul>
+            <ul>Ends: <%= contribution.end_date %></ul>
+            <ul><%= link_to 'Contribution detail', sponsor_contribution_path(contribution) %></ul>
+          </ol>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
