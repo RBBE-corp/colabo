@@ -10,9 +10,6 @@ class Sponsor::ContributionsController < ApplicationController
   def show
   end
 
-  def edit
-  end
-
   def update
     case @contribution.update(contribution_params)
     when :accepted
