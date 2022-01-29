@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @projects = Project.contributions_count
-    if current_user&.projects&.count > 0
+    if current_user && current_user.projects.count > 0
       @sponsor = current_user
     end
   end
