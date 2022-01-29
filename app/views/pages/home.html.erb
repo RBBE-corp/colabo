@@ -1,5 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-
-<p><%= link_to 'Contributions', sponsor_contributions_path %></p>
+<%# if current user has a project show the contributions page %>
+<% if current_user == @sponsor %>
+  <p><%= link_to 'Contributions', sponsor_contributions_path %></p>
+  <p><%= link_to 'Projects', projects_path %></p>
+<% else %>
+  <p>You are not a user</p>
+<% end %>
