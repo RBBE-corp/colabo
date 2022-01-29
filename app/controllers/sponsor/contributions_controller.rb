@@ -1,5 +1,5 @@
 class Sponsor::ContributionsController < ApplicationController
-  before_action :find_contributions, only: [:show, :create, :edit, :update]
+  before_action :find_contribution, only: [:show, :create, :edit, :update]
 
   def index
     @contributions = Contribution.all
@@ -46,7 +46,7 @@ class Sponsor::ContributionsController < ApplicationController
     params.require(:contribution).permit(:status)
   end
 
-  def find_contributions
+  def find_contribution
     @contribution = Contribution.find(params[:id])
   end
 end
