@@ -1,4 +1,5 @@
-  <div class="container col-xxl-8 px-4 py-5">
+  <div class="w-100 bg-light">
+  <div class="container bg-light col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
         <%= image_tag image_path('help.png'), alt: "help" %>
@@ -28,7 +29,26 @@
       </div>
     </div>
   </div>
-
+</div>
+<div class="container bg-white" style= "margin-top: 50px">
+  <h3 class="text-center fw-bold text-secondary">Our Popular Projects</h3>
+  <div class="row row-cols-auto">
+  <% @projects.each do |project| %>
+    <div class="col">
+        <div class="card shadow-sm p-3 mb-5 bg-body rounded" style="width: 18rem;">
+          <div class="card-body">
+            <%= link_to project.project_name, project, class: "card-title h5"  %>
+            <h6 class="card-subtitle mb-2 text-muted"><%= project.user.first_name %></h6>
+            <p class="card-text"><%= project.description %></p>
+            <p class="card-text text-muted">Start date: <%= project.start_date %></p>
+            <p class="card-text text-warning">Contributors: <%= project.contributions.count %>/<%= rand(20..50) %></p>
+          </div>
+        </div>
+    </div>
+  <% end %>
+  </div>
+  </div>
+</div>
 <%# if current user has a project show the contributions page %>
 <% if current_user == @sponsor %>
   <p><%= link_to 'Contributions', sponsor_contributions_path %></p>
