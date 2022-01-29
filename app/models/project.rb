@@ -9,4 +9,12 @@ class Project < ApplicationRecord
   validates :reward_earned, presence: true
   validates :points_earned, presence: true, numericality: { only_integer: true }
   validates :user_id, presence: true
+
+  has_many :contributions
+  def self.contributions_count
+    left_joins(:contributions)
+    .group(:id)
+    .order('COUNT(contributions.id) DESC')
+    .limit(10)
+  end
 end

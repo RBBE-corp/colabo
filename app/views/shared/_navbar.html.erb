@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand font-weight-bold text-monospace" do %>
-      <span class="fw-bold font-monospace">CoLabo</span>
+      <span class="fw-bold h2 font-monospace">CoLabo</span>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,24 +11,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item me-3">
             <%= link_to "Home", root_path, class: "nav-link" %>
+            <%# Uncomment this line if user_profile is done %>
+            <%#= link_to "Profile", current_user, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <% if current_user.projects %>
-              <%= link_to "Project+", new_project_path, class: "nav-link" %>
-            <% else %>
-              <%= link_to "My contributions", contributions_path, class: "nav-link" %>
-            <% end %>
-          </li>
-          <li class="nav-item dropdown lh-lg">
-            <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="avatar dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.first_name[0] %></div>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
+            <li class="nav-item dropdown lh-lg">
+              <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="avatar dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.first_name[0] %></div>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <% if current_user.projects.count > 0 %>
+                  <%= link_to "Pending..", sponsor_contributions_path, class: "dropdown-item" %>
+                <% end %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" %>
+              </div>
+            </li>
         <% else %>
           <!--li class="nav-item"-->
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
