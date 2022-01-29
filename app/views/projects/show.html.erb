@@ -1,7 +1,8 @@
 <div class="container">
-  <div class="project">
+  <div class="project w-50 mx-auto">
     <h1><%= @project.project_name %></h1>
     <%# <h2> Project creator: <%= @project.user.user_name, @project.user.org_name  </h2>%>
+    <img class="profile-image" src="<%= @project.photo.attached? ? cl_image_path(@project.photo.key) : image_path('help.png') %>">
     <h3> Description: <%= @project.description %> </h3>
     <p>  People required for project: <%= @project.people_required %></p>
     <p> Location: <%= @project.location %> </p>
