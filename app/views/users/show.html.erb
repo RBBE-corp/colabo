@@ -6,15 +6,17 @@
 
 <h3>My Projects</h3>
 <% @user_projects.each do |project| %>
-  <ol>
+  <ul>
     <li><%= project.project_name %></li>
-  </ol>
+    <li><%= link_to 'Project detail', project_path(project) %></li>
+  </ul>
 <% end %>
 
 
 <h3>My Contributions</h3>
 <% @user_contributions.each do |contribution| %>
-  <ol>
+  <ul>
     <li>Contribution for <%= contribution.project.project_name %></li>
-  </ol>
+    <li><%= link_to 'Contribution detail', sponsor_contribution_path(contribution) %></li>
+  </ul>
 <% end %>
