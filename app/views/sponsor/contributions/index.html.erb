@@ -17,15 +17,28 @@
         <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
 
         <div class="card-stats">
-          <ol>
-            <ul>Status: <%= contribution.status %></ul>
-            <ul>Project Name: <%= contribution.project.project_name.capitalize %></ul>
-            <ul>Starts: <%= contribution.start_date %></ul>
-            <ul>Ends: <%= contribution.end_date %></ul>
-            <ul class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></ul>
-            <ul class="link-button"><%= link_to 'Edit Status', edit_sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></ul>
-            <ul class="link-button"><%= link_to 'Remove Contribution', sponsor_contribution_path(contribution), method: :delete, class: 'btn btn-secondary' %></ul>
-          </ol>
+          <ul>
+            <li>Status: <%= contribution.status %></li>
+            <li>Project Name: <%= contribution.project.project_name.capitalize %></li>
+            <li>Starts: <%= contribution.start_date %></li>
+            <li>Ends: <%= contribution.end_date %></li>
+            <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
+            <%# <li class="link-button"><%= link_to 'Edit Status', edit_sponsor_contribution_path(contribution), class: 'btn btn-secondary' %>
+            <li class="simple form">
+                <% if contribution.status = :pending %>
+                  <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
+                    <%= f.input :status, :as => :hidden, :input_html => { :value => "accepted" }%>
+                    <%= f.button :submit, "Accept" %>
+                  <% end %>
+                  <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
+                    <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" }%>
+                    <%= f.button :submit, "Deny" %>
+                  <% end %>
+                <% else %>
+                  <li class="link-button"><%= contribution.status %></li>
+                <% end %>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
