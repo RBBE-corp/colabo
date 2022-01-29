@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
+  has_one_attached :photo
   validates :project_name, presence: true, uniqueness: true
   validates :description, presence: true, length: { maximum: 2000 }
   validates :people_required, presence: true, inclusion: { in: 1..100 }

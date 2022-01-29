@@ -14,9 +14,10 @@
   <% @projects.each do |project|%>
     <div class="card-list">
       <div class="image-container">
-        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
 
-        <div class="card-stats">
+          <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('help.png') %>">
+
+          <div class="card-stats">
           <ol>
             <ul>User: <%= project.user.first_name %> <%= project.user.last_name %></ul>
             <ul>Project Name: <%= project.project_name.capitalize %></ul>
