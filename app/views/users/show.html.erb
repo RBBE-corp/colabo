@@ -1,0 +1,20 @@
+
+<h1>User Profile Page</h1>
+
+<h4>Welcome! <%= current_user.first_name %></h4>
+<h4>User Id: <%= @user_id %></h4>
+
+<h3>My Projects</h3>
+<% @user_projects.each do |project| %>
+  <ol>
+    <li><%= project.project_name %></li>
+  </ol>
+<% end %>
+
+
+<h3>My Contributions</h3>
+<% @user_contributions.each do |contribution| %>
+  <ol>
+    <li>Contribution for <%= contribution.project.project_name %></li>
+  </ol>
+<% end %>
