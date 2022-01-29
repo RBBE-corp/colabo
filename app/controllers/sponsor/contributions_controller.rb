@@ -8,41 +8,25 @@ class Sponsor::ContributionsController < ApplicationController
   end
 
   def show
-    # @contribution made available with private method
   end
 
-  # As of now sponsor should not be able to create contributions
-  # def new
-  #   @contribution = Contribution.new
-  #   # authorize @contribution
-  # end
-
-  # def create
-  #   @contribution = Contribution.new(contribution_params)
-  #   @contribution.user = contribution_user
-  #   # authorize @contribution
-  #   if @contribution.save
-  #     redirect_to contribution_path(@contribution)
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def edit
-    # @contribution made available with private method
-    # sponsor should be able to change :status enum
   end
 
   def update
-     # @contribution made available with private method
-     @contribution.update(contribution_params)
-     # redirect to show page
-     redirect_to contribution_path
+    case @contribution.update(contribution_params)
+    when :accepted
+      @contribution.status = :accepted
+      redirect_to contribution_path, notice: "Contribution accepted."
+    when :denied
+      @contribution.status = :denied
+      redirect_to contribution_path, notice: "Contribution denied."
+    end
   end
 
   private
 
-  def contributions_params
+  def contribution_params
     params.require(:contribution).permit(:status)
   end
 
