@@ -1,5 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <%= image_tag image_path('help.png'), alt: "help" %>
+      </div>
+      <div class="col-lg-6">
+        <div class="lc-block mb-3">
+          <div editable="rich">
+            <h2 class="fw-bold display-5">Collabo for <span class="text-danger">YOU</span> who want to Collaborate.</h2>
+          </div>
+        </div>
+
+        <div class="lc-block mb-3">
+          <div editable="rich">
+            <p class="lead"><span class="h3 fw-bold text-primary ">Easy</span><span class="h3 fw-bold mx-3 text-primary">Fast</span><span class="h3 fw-bold text-primary">Safe</span>
+            <p class="lead"><span class="h3 fw-bold text-primary "><%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/768px-Flat_tick_icon.svg.png", alt: "safe", width: "52px" %></span><span class="h3 fw-bold mx-3 text-primary"><%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Font_Awesome_5_solid_shipping-fast.svg/1279px-Font_Awesome_5_solid_shipping-fast.svg.png", alt: "fast", width: "52px" %></span><span class="h3 fw-bold text-primary"><span class="h3 fw-bold text-primary "><%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/OOjs_UI_icon_secure-link.svg/1024px-OOjs_UI_icon_secure-link.svg.png", alt: "safe", width: "52px" %></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="lc-block d-grid gap-2 d-md-flex justify-content-md-start">
+          <%# <a class="btn btn-primary px-4 me-md-2" href="#" role="button">Click me, I'm a button</a> %>
+          <%= link_to "Start a Project", new_project_path, role: "button", class: "btn btn-primary px-4 me-md-2"%>
+          <%= link_to "Contribute", projects_path, role: "button", class: "btn btn-outline-secondary px-4"%>
+          <%# <a class="btn btn-outline-secondary px-4" href="#" role="button">Click me, I'm a button</a> %>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 <%# if current user has a project show the contributions page %>
 <% if current_user == @sponsor %>
