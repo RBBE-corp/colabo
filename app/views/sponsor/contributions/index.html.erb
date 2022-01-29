@@ -23,7 +23,6 @@
             <li>Starts: <%= contribution.start_date %></li>
             <li>Ends: <%= contribution.end_date %></li>
             <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
-            <%# <li class="link-button"><%= link_to 'Edit Status', edit_sponsor_contribution_path(contribution), class: 'btn btn-secondary' %>
             <li class="simple form">
                 <% if contribution.status = :pending %>
                   <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>

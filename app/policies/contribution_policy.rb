@@ -1,6 +1,6 @@
 class ContributionPolicy < ApplicationPolicy
   attr_reader :user, :record
-
+  # contribution policy
   def initialize(user, record)
     @user = user
     @record = record

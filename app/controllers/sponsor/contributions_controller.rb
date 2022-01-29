@@ -11,7 +11,7 @@ class Sponsor::ContributionsController < ApplicationController
   end
 
   def update
-    authorize @contribution
+    authorize @contribution # policy
     case contribution_params[:status]
     when "accepted"
       @contribution.accepted!
