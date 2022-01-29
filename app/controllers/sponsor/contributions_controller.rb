@@ -40,13 +40,6 @@ class Sponsor::ContributionsController < ApplicationController
      redirect_to contribution_path
   end
 
-  def destroy
-     # @contribution made available with private method
-     @contribution.destroy
-     # redirect to index page
-     redirect_to contributions_path
-  end
-
   private
 
   def contributions_params

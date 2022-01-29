@@ -4,10 +4,7 @@
 <%# if current user has a project show the contributions page %>
 <% if current_user == @sponsor %>
   <p><%= link_to 'Contributions', sponsor_contributions_path %></p>
-<% else %>
   <p><%= link_to 'Projects', projects_path %></p>
-  <%# <p><%= link_to 'Contributions', contributions_path %></p>
+<% else %>
+  <p>You are not a user</p>
 <% end %>
-
-<%# Erase when ready for deployment %>
-<p><%= link_to 'Contributions', sponsor_contributions_path %></p>
