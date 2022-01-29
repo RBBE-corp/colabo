@@ -11,13 +11,14 @@ class Sponsor::ContributionsController < ApplicationController
   end
 
   def update
-    case @contribution.update(contribution_params)
-    when :accepted
-      @contribution.status = :accepted
-      redirect_to contribution_path, notice: "Contribution accepted."
-    when :denied
-      @contribution.status = :denied
-      redirect_to contribution_path, notice: "Contribution denied."
+    authorize @contribution # policy
+    case contribution_params[:status]
+    when "accepted"
+      @contribution.accepted!
+      redirect_to sponsor_contributions_path, notice: "Contribution accepted."
+    when "denied"
+      @contribution.denied!
+      redirect_to sponsor_contributions_path, notice: "Contribution denied."
     end
   end
 
