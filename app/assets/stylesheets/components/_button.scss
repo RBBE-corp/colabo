@@ -1,7 +1,7 @@
 .button-square-right {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   box-shadow: 7px 7px 15px transparent, -7px -7px 15px transparent, inset 0 0 0 transparent, inset 0 0 0 transparent;
-  transition: .8s ease-in-out;
+  transition: .5s ease-in-out;
   &.logout {
     color: #db2841 !important;
   }
