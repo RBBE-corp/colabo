@@ -13,6 +13,9 @@
           <li class="nav-item ">
             <%= link_to "About_us", root_path, class: "nav-link" %>
           </li>
+          <li class="nav-item ">
+            <%= link_to "Projects", projects_path, class: "nav-link" %>
+          </li>
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Profile", current_user, class: "nav-link" %>
@@ -21,8 +24,8 @@
             <%= link_to "log_out", destroy_user_session_path, method: :delete, class: "nav-link border-start button-square-right logout ms-3" %>
           </li>
         <% else %>
-          <li class="nav-item" >          
-          <%= link_to "log_in", new_user_session_path, class: "nav-link border-start button-square-right login ms-3" %>
+          <li class="nav-item" >
+            <%= link_to "log_in", new_user_session_path, class: "nav-link border-start button-square-right login ms-3" %>
           </li>
         <% end %>
       </ul>
