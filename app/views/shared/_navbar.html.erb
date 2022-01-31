@@ -1,38 +1,30 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand font-weight-bold text-monospace" do %>
-      <span class="fw-bold h2 font-monospace">CoLabo</span>
+<div class="navbar navbar-expand-lg navbar-light navbar-lewagon">
+  <div class="container-fluid px-5">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <span class= "colabo-logo"> <%= image_tag "logo_withborder.svg" %></span>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div  class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <%= link_to "About_us", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to "Projects", projects_path, class: "nav-link" %>
+          </li>
         <% if user_signed_in? %>
-          <li class="nav-item me-3">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-            <%# Uncomment this line if user_profile is done %>
-          </li>
-          <li class="nav-item me-3">
+          <li class="nav-item">
             <%= link_to "Profile", current_user, class: "nav-link" %>
-            <%# Uncomment this line if user_profile is done %>
           </li>
-            <li class="nav-item dropdown lh-lg">
-              <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="avatar dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.first_name[0] %></div>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <% if current_user.projects.count > 0 %>
-                  <%= link_to "Pending..", sponsor_contributions_path, class: "dropdown-item" %>
-                <% end %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" %>
-              </div>
-            </li>
+          <li class="nav-item" style="font-size: 1.05em">
+            <%= link_to "log_out", destroy_user_session_path, method: :delete, class: "nav-link button-square-right logout" %>
+          </li>
         <% else %>
-          <!--li class="nav-item"-->
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
+          <li class="nav-item" style="font-size: 1.05em">
+            <%= link_to "log_in", new_user_session_path, class: "nav-link button-square-right login" %>
+          </li>
         <% end %>
       </ul>
     </div>

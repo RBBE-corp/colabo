@@ -52,11 +52,12 @@ projects = []
 20.times do
 projects << Project.create!(
     user: users.sample,
-    project_name: Faker::Marketing.buzzwords,
+    project_name: Faker::Marketing.buzzwords + rand(1..1000).to_s,
     description: Faker::Games::WorldOfWarcraft.quote,
     location: Faker::Address.street_address,
     start_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
     end_date: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+    people_required: rand(20..50),
     reward_earned: rand(1..5),
     points_earned: rand(1..15)
   )
