@@ -49,8 +49,11 @@
       <div class="carousel__item">
         <div class="carousel__item-head">😀</div>
         <div class="carousel__item-body">
-          <h5>TITLe</h5>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam quaerat optio aliquid atque dolor.</p>
+          <%= link_to project.project_name, project, class: "title h5 text-dark fw-bold"  %>
+          <h6 class="card-subtitle mb-2 text-muted"><%= project.user.first_name %></h6>
+          <p class="card-text"><%= project.description %></p>
+          <p class="card-text text-muted">Held on: <%= project.start_date %></p>
+          <p class="card-text text-warning">Contributors: <%= project.contributions.count %>/<%= project.people_required %></p>
         </div>
       </div>
     <% end %>
