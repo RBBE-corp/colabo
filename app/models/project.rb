@@ -18,4 +18,16 @@ class Project < ApplicationRecord
     .order('COUNT(contributions.id) DESC')
     .limit(10)
   end
+
+  def find_users
+    users_array = []
+    contributions.each do | contribution |
+      users_array << contribution.user
+    end
+    users_array
+  end
+
+  def find_contribution(contributor)
+    Contribution.all.where("project_id = ? AND user_id = ?", id, contributor.id).first # SQL Array
+  end
 end

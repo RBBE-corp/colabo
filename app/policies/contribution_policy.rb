@@ -15,12 +15,12 @@ class ContributionPolicy < ApplicationPolicy
   end
 
   def create?
-    false
+    true
   end
 
-  def new?
-    create?
-  end
+  # def new?
+  #   create?
+  # end
 
   def update?
     true
@@ -31,7 +31,7 @@ class ContributionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    false
+    user == record.user
   end
 
   class Scope
