@@ -18,13 +18,13 @@
         <p><strong>Representing:</strong> <bdi class="content"><%= current_user.org_name %></bdi></p>
         <p><strong>Sponsoring:</strong> <bdi class="content"><%= current_user.projects.count %></bdi> projects</p>
         <p><strong>Contribution points:</strong> <bdi class="content"><%= current_user.total_points %></bdi> pt</p>
-        <p>Our mission is to keep local parks clean so our customers can enjoy their weekends</p>
+        <p>Our mission is to keep local parks clean so our public running team can enjoy the park.</p>
     </div>
   </div>
 </div>
 
 <div class="row-title">
-  <h1>My Projects</h1>
+  <h1>Currently Sponsoring</h1>
 </div>
 
 <%# card component for projects%>
@@ -34,9 +34,9 @@
       <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
         <div class="card-stats">
           <ol>
-            <ul>Project name: <%= project.project_name.capitalize %></ul>
-            <ul>Starts: <%= project.start_date %></ul>
-            <ul>Ends: <%= project.end_date %></ul>
+            <ul><strong>Project:</strong> <%= project.project_name.capitalize %></ul>
+            <ul><strong>Starts:</strong> <%= project.start_date.strftime("%d/%m/%y %H:%M")  %></ul>
+            <ul><strong>Ends:</strong> <%= project.end_date.strftime("%d/%m/%y %H:%M")  %></ul>
             <ul><%= link_to 'Project detail', project_path(project), :class => 'btn btn-secondary' %></li>
           </ol>
         </div>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="row-title">
-  <h1>My Contributions</h1>
+  <h1>Planning to Join</h1>
 </div>
 
 <%# card component for contributions %>
@@ -56,11 +56,11 @@
       <div class="card-stats">
         <ol>
           <ul>Contribution for <%= contribution.project.project_name %></ul>
-          <ul>Status: <%= contribution.status %></ul>
-          <ul>Project Name: <%= contribution.project.project_name.capitalize %></ul>
-          <ul>Starts: <%= contribution.start_date %></ul>
-          <ul>Ends: <%= contribution.end_date %></ul>
-          <ul><%= link_to 'Contribution detail', sponsor_contribution_path(contribution) %></ul>
+          <ul><strong>Status:</strong> <%= contribution.status %></ul>
+          <ul><strong>Project:</strong> <%= contribution.project.project_name.capitalize %></ul>
+          <ul><strong>Starts:</strong> <%= contribution.start_date.strftime("%d/%m/%y %H:%M") %></ul>
+          <ul><strong>Ends:</strong> <%= contribution.end_date.strftime("%d/%m/%y %H:%M")  %></ul>
+          <ul class ="btn"><%= link_to 'Contribution detail', sponsor_contribution_path(contribution), :class => 'btn btn-secondary' %></ul>
         </ol>
       </div>
     </div>

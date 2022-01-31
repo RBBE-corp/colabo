@@ -1,9 +1,22 @@
 // Import page-specific CSS files here.
 @import "home";
 
-//////////////// User Profile Banner //////////////////
+///////// html body /////////
+// * Necessary for removing random white space around html page
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden ;
+}
+/////////////////////////////////////////////
+
+//////////// User Profile Banner //////////
+
 .profile-banner {
   height: 346px;
+  width: 100vw;
   background-image: url("passion.png");
   // background-repeat: no-repeat;
   background-size: 100%;
@@ -23,8 +36,7 @@
     height:346px;
     }
 
-  // Profile image size, position, radius
-
+    // Profile image size, position, radius
     img {
       height: 126px;
       width: 126px;
@@ -39,16 +51,16 @@
       margin-left: 26px;
     }
 
-    // Bidirectional Isolate Element //
+    // Bidirectional Isolate Element for Colorful Text//
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
     bdi {
       color: rgb(101, 168, 255);
-      text-shadow: 2px 0px 2px rgba(97, 97, 97, 0.945);
+      text-shadow: 2px 0px 2px rgba(105, 105, 105, 0.945);
     }
 
    h1 {
       font-family: 'Inter', sans-serif;
-      font-size: 48px;
+      font-size: 42px;
       font-weight: bold;
       color: white;
       text-shadow: 8px 8px 8px rgba(151, 151, 151, 0.945);
@@ -64,21 +76,21 @@
    }
 }
 
+
+//////// Profile Page Subtitle Positioning ///////
+.row-title {
+  width: 100vw;
+  background-color: rgb(197, 200, 200);
+}
+////////////////////////////////////////////////
+
  .notice {
     margin-bottom: 0px;
   }
 
-////////////////////////////////////////////////
 
 
-
-// Profile Page Subtitle Positioning //
-.row-title {
-  margin-left: 36px;
-}
-/////////
-
-//Main Page Banner Component//
+///////////Main Page Banner Component////////////
 .banner {
   height: 600px;
   background-image: url("passion.png");
@@ -115,9 +127,9 @@
 
 
 
-////////////////
+///////////////////////////////////////////////
 
-// Card Component //
+/////////////// Projects Card Component ///////////////
 .card-container {
   padding: 2px;
   min-width: 0;
@@ -136,7 +148,7 @@
   // background-image: url(".png");
   // background-repeat: no-repeat;
 
-  @media (max-width: 700px) {
+  @media (max-width: 100vw) {
     .card-container {
       flex-direction: column;
   }
@@ -148,30 +160,33 @@
   margin-left: auto;
   margin-right: auto;
   background-position: center;
-  background-color: blueviolet;
+  background-color: rgb(255, 255, 255);
   box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
   color: #1f1f1f;
   border-radius: 8px;
   margin: 16px;
   display: grid;
   height: auto;
-  width: 460px;
+  width: 400px;
 }
 
 .profile-image {
  max-width: 400px;
+ border-top-right-radius: 8px;
+ border-top-left-radius: 8px;
 }
 
 .card-stats {
-  margin-top: 46px;
-  margin-bottom: 36px;
-  margin: 36px
+  margin: 12px;
+  margin-top: 24px;
+  margin-bottom: 12px;
 
   ul {
     font-size: 20px;
   }
-  .link-button {
-   margin-top: 16px;
+
+    .btn {
+    margin-top: 20px;
   }
 }
 
@@ -179,3 +194,4 @@
     background-color: rgb(180, 180, 180);
   }
 }
+//////////////////////////////////////////////
