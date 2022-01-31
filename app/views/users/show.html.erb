@@ -15,9 +15,9 @@
     <div class="profile-content">
       <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
       <%# <p>User Id: <%= @user_id %></p>
-        <p>Representing: <%= current_user.org_name %></p>
-        <p>Sponsoring: <%= current_user.projects.count %> projects</p>
-        <p>Contribution points: <%= current_user.total_points %> pt</p>
+        <p><strong>Representing:</strong> <bdi class="content"><%= current_user.org_name %></bdi></p>
+        <p><strong>Sponsoring:</strong> <bdi class="content"><%= current_user.projects.count %></bdi> projects</p>
+        <p><strong>Contribution points:</strong> <bdi class="content"><%= current_user.total_points %></bdi> pt</p>
         <p>Our mission is to keep local parks clean so our customers can enjoy their weekends</p>
     </div>
   </div>
@@ -37,7 +37,7 @@
             <ul>Project name: <%= project.project_name.capitalize %></ul>
             <ul>Starts: <%= project.start_date %></ul>
             <ul>Ends: <%= project.end_date %></ul>
-            <ul><%= link_to 'Project detail', project_path(project) %></li>
+            <ul><%= link_to 'Project detail', project_path(project), :class => 'btn btn-secondary' %></li>
           </ol>
         </div>
     </div>

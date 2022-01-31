@@ -39,6 +39,13 @@
       margin-left: 26px;
     }
 
+    // Bidirectional Isolate Element //
+    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi
+    bdi {
+      color: rgb(101, 168, 255);
+      text-shadow: 2px 0px 2px rgba(97, 97, 97, 0.945);
+    }
+
    h1 {
       font-family: 'Inter', sans-serif;
       font-size: 48px;
@@ -49,9 +56,9 @@
    }
 
    p {
-     font-family: 'Inter', sans-serif;
+     font-family: sans-serif;
      font-size: 20px;
-     line-height: 18px;
+     line-height: 24px;
      color: white;
      text-shadow: 2px 2px 10px slategrey;
    }
