@@ -1,5 +1,5 @@
-  <div class="w-100 bg-light">
-  <div class="container bg-light col-xxl-8 px-4 py-5">
+  <div class="w-100 bg-white" >
+  <div class="container bg-white col-xxl-8 px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
         <%= image_tag image_path('help.png'), alt: "help" %>
@@ -31,8 +31,44 @@
   </div>
 </div>
 <div class="container bg-white" style= "margin-top: 50px">
-  <h3 class="text-center fw-bold text-secondary">Our Popular Projects</h3>
-  <div class="row row-cols-auto">
+  <div class="text-center mb-3">
+    <span class="h5 inline-block text-secondary fw-bold px-3 py-1" style="background: rgb(231,233,237); border-radius:8px">How we work</span>
+  </div>
+  <div class="how_we_work shadow py-5 px-3 mb-5 rounded">
+    <h3 class="text-center fw-bold">Sponsoring and contributing.</h3>
+    <div class="row justify-content-center">
+      <div class="col-sm-6 col-md-4 col-xs-12 text-center">
+        <div class="svg-box">
+          <%= render 'components/project_svg' %>
+        </div>
+        <div class="work-note">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit illo doloremque repellendus amet ipsa esse fuga nulla
+          , magnam laboriosam voluptates sed illum deleniti sint eveniet repudiandae natus minus in. Dignissimos. </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-xs-12 text-center">
+        <div class="svg-box">
+          <%= render 'components/contribution_svg' %>
+        </div>
+        <div class="work-note">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit illo doloremque repellendus amet ipsa esse fuga nulla
+          , magnam laboriosam voluptates sed illum deleniti sint eveniet repudiandae natus minus in. Dignissimos. </p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4 col-xs-12 text-center">
+        <div class="svg-box">
+          <%= render 'components/reward_svg' %>
+        </div>
+        <div class="work-note">
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit illo doloremque repellendus amet ipsa esse fuga nulla
+          , magnam laboriosam voluptates sed illum deleniti sint eveniet repudiandae natus minus in. Dignissimos. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h4 class="text-center text-secondary fw-bold mb-3 mt-5">Our successful Projects</h4>
+  <div class="row row-cols-auto shadow p-3 mb-5 bg-white rounded">
   <% @projects.each do |project| %>
     <div class="col">
         <div class="card shadow-sm p-3 mb-5 bg-body rounded" style="width: 18rem;">
