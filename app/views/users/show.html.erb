@@ -55,7 +55,7 @@
       <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
       <div class="card-stats">
         <ol>
-          <ul>Contribution for <%= contribution.project.project_name %></ul>
+          <ul><strong>Project</strong> <%= contribution.project.project_name %></ul>
           <ul><strong>Status:</strong> <%= contribution.status %></ul>
           <ul><strong>Project:</strong> <%= contribution.project.project_name.capitalize %></ul>
           <ul><strong>Starts:</strong> <%= contribution.start_date.strftime("%d/%m/%y %H:%M") %></ul>
