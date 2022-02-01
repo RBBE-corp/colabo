@@ -20,6 +20,7 @@ puts "......"
 
 
 babin = User.create!(
+  mission: "There's more we can do to help others and the community!",
   password: "123456",
   email: "username1@gmail.com",
   first_name: "Babin",
@@ -30,6 +31,7 @@ babin = User.create!(
 )
 
 erika = User.create!(
+  mission: "Let's make the world a better place!",
   password: "123456",
   email: "username2@gmail.com",
   first_name: "Erika",
@@ -40,6 +42,7 @@ erika = User.create!(
 )
 
 byron = User.create!(
+  mission: "Going beyond CSR and giving back to our community!",
   password: "123456",
   email: "username3@gmail.com",
   first_name: "Byron",
@@ -49,7 +52,8 @@ byron = User.create!(
   total_points: 65
 )
 
-completed = User.create!(
+contributor = User.create!(
+  mission: "Saving people's live one small step at a time.",
   password: "123456",
   email: "username5@gmail.com",
   first_name: "Harold",
@@ -60,6 +64,7 @@ completed = User.create!(
 )
 
 reona = User.create!(
+  mission: "Reach out to everyone in the community through community projects.",
   password: "123456",
   email: "username4@gmail.com",
   first_name: "Reona",
@@ -69,7 +74,7 @@ reona = User.create!(
   total_points: 0
 )
 
-users = [babin, erika, byron, reona]
+users = [babin, erika, byron, reona, contributor]
 
 projects = []
 
