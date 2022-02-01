@@ -7,8 +7,18 @@
     <p>Edit Code to show just the current_user's projects</p>
   </div>
 </div>
-
-
+<% if user_signed_in? %>
+<div class="container search-bar">
+  <%= form_tag projects_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find projects"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<% end %>
 <%# card component %>
 <div class ="card-container">
   <% @projects.each do |project|%>
