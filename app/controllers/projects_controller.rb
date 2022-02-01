@@ -7,7 +7,10 @@ class ProjectsController < ApplicationController
     @projects = policy_scope(Project)
   end
 
-  def show; end
+  def show
+    @contributions = Contribution.all.find_by(project_id: current_user.project_ids)
+    # @contributions = user_projects.contribution
+  end
 
   def new
     @project = Project.new
