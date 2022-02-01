@@ -10,18 +10,13 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10'
     });
-  }
-};
-
-if (mapElement) {
-  // [ ... ]
-  const markers = JSON.parse(mapElement.dataset.markers);
-  markers.forEach((marker) => {
+  const marker = JSON.parse(mapElement.dataset.markers);
     new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
+      .setLngLat([ marker[1], marker[0] ])
       .addTo(map);
-  });
-}
+  }
+
+
 
 // const fitMapToMarkers = (map, markers) => {
 //   const bounds = new mapboxgl.LngLatBounds();
@@ -32,6 +27,9 @@ if (mapElement) {
 // if (mapElement) {
 //   // [ ... ]
 //   fitMapToMarkers(map, markers);
-// }
+//   }
+
+};
+
 
 export { initMapbox };
