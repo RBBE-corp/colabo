@@ -11,6 +11,9 @@ class Project < ApplicationRecord
   validates :points_earned, presence: true, numericality: { only_integer: true }
   validates :user_id, presence: true
 
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
   has_many :contributions
   def self.contributions_count
     left_joins(:contributions)

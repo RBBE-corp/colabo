@@ -7,7 +7,13 @@ class ProjectsController < ApplicationController
     @projects = policy_scope(Project)
   end
 
-  def show; end
+  def show
+    @markers = @project.geocode.map
+    {
+      lat: @project.latitude,
+      lng: @project.longitude
+    }
+  end
 
   def new
     @project = Project.new
