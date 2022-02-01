@@ -7,7 +7,8 @@ class ProjectsController < ApplicationController
     @projects = policy_scope(Project)
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @project = Project.new
