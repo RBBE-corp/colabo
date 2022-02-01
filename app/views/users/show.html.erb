@@ -58,8 +58,8 @@
           <ul><strong>Project</strong> <%= contribution.project.project_name %></ul>
           <ul><strong>Status:</strong> <%= contribution.status %></ul>
           <ul><strong>Project:</strong> <%= contribution.project.project_name.capitalize %></ul>
-          <ul><strong>Starts:</strong> <%= contribution.start_date.strftime("%d/%m/%y %H:%M") %></ul>
-          <ul><strong>Ends:</strong> <%= contribution.end_date.strftime("%d/%m/%y %H:%M")  %></ul>
+          <ul><strong>Starts:</strong> <%= contribution.project.start_date.strftime("%d/%m/%y %H:%M") %></ul>
+          <ul><strong>Ends:</strong> <%= contribution.project.end_date.strftime("%d/%m/%y %H:%M") %></ul>
           <ul class ="btn"><%= link_to 'Contribution detail', sponsor_contribution_path(contribution), :class => 'btn btn-secondary' %></ul>
         </ol>
       </div>
