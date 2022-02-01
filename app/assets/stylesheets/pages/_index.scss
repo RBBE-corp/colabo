@@ -98,6 +98,7 @@ html, body {
   background-size: 100%;
   background-position: center;
   padding: 200px 0;
+  margin-bottom: 26px;
 
    h1 {
      font-family: 'Righteous', sans-serif;
@@ -198,69 +199,53 @@ html, body {
 
 
 ///////////////Contributions Card/////////////////
-.contribution-card-container {
-  padding: 2px;
-  min-width: 0;
-  margin: 10px;
+
+
+.contribution-card {
   display: flex;
-  flex-shrink: inherit;
-  flex-wrap: wrap;
-  flex-direction: row;
-  row-gap: 10px;
-  column-gap: 10px;
   justify-content: center;
-  background-color: rgb(116, 170, 170);
-  width: 100vw;
+  // height: 100vw;
+  // width: 100vw;
+  // // background-color: cornflowerblue;
+  // // background-repeat: no-repeat;
+  // background-size: 100%;
+  // background-position: center;
+  // padding: 146px 0;
+  // background-image: url("passion.png");
 
-  // For Assets //
-  // background-image: url(".png");
-  // background-repeat: no-repeat;
+   form {
+     display: inline-block;
+   }
 
-  @media (max-width: 100vw) {
-    .card-container {
+  // Gray Container
+    .container {
+    width: 968px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 12px;
+    background: rgba(236, 236, 236, 0.7);
+    padding: 64px;
+    height: 196px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    // Profile image size, position, radius
+    img {
+      height: 126px;
+      width: 126px;
+      border-radius: 50%;
+    }
+    /////////////////////
+
+    .profile-content {
+      display: flex;
       flex-direction: column;
-
-  }
-}
-
-// Image Control Value //
-.project-card {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  background-position: center;
-  background-color: rgb(251, 137, 137);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-  color: #1f1f1f;
-  border-radius: 8px;
-  margin: 16px;
-  display: grid;
-  height: 326px;
-  width: 1326px;
-}
-
-  }
-.profile-image {
- max-width: 400px;
- border-top-right-radius: 8px;
- border-top-left-radius: 8px;
-}
-
-.card-stats {
-  display: block;
-  margin: 12px;
-  margin-top: 24px;
-  margin-bottom: 12px;
-
-  ul {
-    font-size: 20px;
-  }
-
-    .btn {
-    margin-top: 20px;
-  }
-}
-
-  .project-card:hover  {
-    background-color: rgb(180, 180, 180);
+      justify-content: flex-start;
+      margin-left: 26px;
+    }
   }
