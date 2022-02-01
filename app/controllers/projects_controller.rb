@@ -13,6 +13,11 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @markers = @project.geocode.map
+    {
+      lat: @project.latitude,
+      lng: @project.longitude
+    }
   end
 
   def new
