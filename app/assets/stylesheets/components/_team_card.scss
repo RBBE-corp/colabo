@@ -40,7 +40,7 @@
 } 
 
 
-.box{
+.content-box{
   position: relative;
   min-width: 250px;
   background-color: #fff;
@@ -90,7 +90,7 @@
   z-index: 1;
   transition: all 0.3s;
 }
-.box .heart-btn:checked ~ .heart::before{
+.content-box .heart-btn:checked ~ .heart::before{
   color:#e41934
 }
 .heart-btn{

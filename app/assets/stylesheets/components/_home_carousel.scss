@@ -7,7 +7,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
 .wrapper {
   background: linear-gradient(60deg, #420285, #08BDBD);
   height: 400px;
-  width: 100%;
+  min-width: 100%;
   overflow-x: hidden;
   border-radius: 20px;
   display: flex;
@@ -120,7 +120,6 @@ $slide-change-timing: 3; // percentage of total animation cycle
   100% {
     transform: translateX(-100%) scale(0.5);
     opacity: 0;
-    visibility: hidden;
-    
+    visibility: hidden;  
   }
 }
