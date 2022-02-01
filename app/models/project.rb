@@ -36,7 +36,7 @@ class Project < ApplicationRecord
   #pg search
   include PgSearch::Model
   pg_search_scope :search_by_project_and_location,
-    against: [ :project_name, :description ],
+    against: [ :project_name, :description, :location ],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
