@@ -8,8 +8,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @contributions = Contribution.all.find_by(project_id: current_user.project_ids)
-    # @contributions = user_projects.contribution
   end
 
   def new
