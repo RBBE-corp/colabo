@@ -1,0 +1,24 @@
+footer {
+  background-color: rgb(49, 219, 235);
+  padding: 1em;
+}
+
+.list_inline {
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+}
+
+.list_inline > li {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 24px;
+}
+
+.logo i {
+  transition: transform 0.8s; 
+}
+
+.logo i:hover {
+  transform: scale(1.8, 1.8) rotate(360deg);
+}
