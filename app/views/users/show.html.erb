@@ -18,7 +18,7 @@
         <p><strong>Representing:</strong> <bdi class="content"><%= current_user.org_name %></bdi></p>
         <p><strong>Sponsoring:</strong> <bdi class="content"><%= current_user.projects.count %></bdi> projects</p>
         <p><strong>Contribution points:</strong> <bdi class="content"><%= current_user.total_points %></bdi> pt</p>
-        <p>Our mission is to keep local parks clean so our public running team can enjoy the park.</p>
+        <p><strong>Mission:</strong> <%= current_user.mission %></p>
     </div>
   </div>
 </div>
@@ -55,11 +55,10 @@
       <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
       <div class="card-stats">
         <ol>
-          <ul><strong>Project</strong> <%= contribution.project.project_name %></ul>
+          <ul><strong>Project</strong> <%= contribution.project.project_name.capitalize %></ul>
           <ul><strong>Status:</strong> <%= contribution.status %></ul>
-          <ul><strong>Project:</strong> <%= contribution.project.project_name.capitalize %></ul>
-          <ul><strong>Starts:</strong> <%= contribution.start_date.strftime("%d/%m/%y %H:%M") %></ul>
-          <ul><strong>Ends:</strong> <%= contribution.end_date.strftime("%d/%m/%y %H:%M")  %></ul>
+          <ul><strong>Starts:</strong> <%= contribution.project.start_date.strftime("%d/%m/%y %H:%M") %></ul>
+          <ul><strong>Ends:</strong> <%= contribution.project.end_date.strftime("%d/%m/%y %H:%M") %></ul>
           <ul class ="btn"><%= link_to 'Contribution detail', sponsor_contribution_path(contribution), :class => 'btn btn-secondary' %></ul>
         </ol>
       </div>

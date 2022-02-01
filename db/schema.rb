@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_02_01_092457) do
+=======
+ActiveRecord::Schema.define(version: 2022_02_01_082515) do
+>>>>>>> 6b054f2524c7e24536f6e114e38e460f6a2d261e
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_092457) do
     t.string "user_name"
     t.integer "total_points"
     t.string "org_name"
+    t.text "mission"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
