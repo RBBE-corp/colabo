@@ -8,11 +8,10 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @markers = @project.geocode.map
-    {
-      lat: @project.latitude,
-      lng: @project.longitude
-    }
+    @markers = [@project.geocode].map do |lat, lng|
+    { lat: lat,
+      lng: lng }
+    end
   end
 
   def new
