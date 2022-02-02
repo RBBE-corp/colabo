@@ -4,10 +4,20 @@ class ProjectsController < ApplicationController
 
   def index
     # @projects = Project.all
-    @projects = policy_scope(Project)
+    # @projects = policy_scope(Project)
+    if params[:query].present?
+      @projects = policy_scope(Project).search_by_project_and_location(params[:query])
+   else
+     @projects = policy_scope(Project)
+   end
   end
 
   def show
+    @markers = @project.geocode.map
+    {
+      lat: @project.latitude,
+      lng: @project.longitude
+    }
   end
 
   def new

@@ -14,3 +14,9 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+import { initMapbox } from '../plugins/map';
+
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})

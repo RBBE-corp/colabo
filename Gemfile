@@ -3,8 +3,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.4'
 
+
+#pg gem
+gem 'pg_search', '~> 2.3.0'
+#geocoder gem
+gem 'geocoder'
+
 #cloudinary gems
-gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 #Faker
 gem 'faker'
