@@ -19,26 +19,10 @@
     <%= render 'shared/navbar' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%# giving definite height to yield field. %>
+    <div style="min-height: calc(100vh - 184px);">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
-  <footer class="text-center">
-    <ul class="list_inline">
-      <li>
-        <a class="logo" href="#">
-          <i class="fab fa-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="logo" href="#">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </li>
-      <li>
-        <a class="logo" href="#">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </li>
-    </ul>
-    <p>Powered by RBBE-corp. @copyrights protected.</p>
-  </footer>
 </html>
