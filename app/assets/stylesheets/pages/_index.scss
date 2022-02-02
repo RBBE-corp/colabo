@@ -257,7 +257,7 @@ html, body {
 ///////////////Contributions Card/////////////////
 
 .contribution-cards-holder {
-  background-color: rgb(10, 100, 78);
+  // background-color: rgb(10, 100, 78);
   padding: 20px;
   // .contribution-card {
   //   align-items: center;
@@ -274,13 +274,22 @@ html, body {
     display: flex;
     align-items: center;
     height:146px;
-    background: rgba(55, 41, 179, 0.7);
+    background: rgba(225, 225, 226, 0.1);
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
     border-radius: 8px;
+    // Glassmorphism //
+    /* From https://css.glass */
+    background: rgba(212, 212, 212, 0.38);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.7px);
+    -webkit-backdrop-filter: blur(7.7px);
+    border: 1px solid rgba(212, 212, 212, 0.03);
   }
 
    form {
      display: inline-block;
+     margin-top: -19px
    }
 
 
@@ -294,6 +303,7 @@ html, body {
       height: 96px;
       width: 96px;
       border-radius: 50%;
+      margin-left: 36px;
     }
     /////////////////////
 
@@ -301,7 +311,8 @@ html, body {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      margin-left: 26px;
+      margin-left: 16px;
+      margin-top: 16px;
     }
 }
 

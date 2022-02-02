@@ -15,8 +15,8 @@
         <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
         <div class="profile-content">
               <ul>
-                <li>Contributor: <%= contribution.user.first_name%> <%= contribution.user.last_name %></li>
-                <li>Status: <%= contribution.status %></li>
+                <li><strong>Contributor:</strong> <%= contribution.user.first_name%> <%= contribution.user.last_name %></li>
+                <li><strong>Status:</strong> <%= contribution.status %></li>
                 <li class="simple form">
                     <% if contribution.status = :pending %>
                       <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
@@ -30,7 +30,7 @@
                     <% else %>
                       <li class="link-button"><%= contribution.status %></li>
                     <% end %>
-                <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
+                <%# <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
                 </li>
               </ul>
           </div>
