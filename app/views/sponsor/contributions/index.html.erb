@@ -8,19 +8,15 @@
   </div>
 </div>
 
-<div class="spacer">
 
-  <%# card component %>
+<div class="contribution-cards-holder">
   <% @contributions.each do |contribution|%>
-   <div class ="contribution-card">
-    <div class="container">
+      <div class="contribution-card">
         <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
-            <div class="profile-content">
+        <div class="profile-content">
               <ul>
+                <li>Contributor: <%= contribution.user.first_name%> <%= contribution.user.last_name %></li>
                 <li>Status: <%= contribution.status %></li>
-                <li>Project Name: <%= contribution.project.project_name.capitalize %></li>
-                <%# <li>Starts: <%= contribution.start_date %></li>
-                <%# <li>Ends: <%= contribution.end_date %></li>
                 <li class="simple form">
                     <% if contribution.status = :pending %>
                       <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
@@ -37,8 +33,7 @@
                 <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
                 </li>
               </ul>
-            </div>
+          </div>
      </div>
-    </div>
   <% end %>
 </div>

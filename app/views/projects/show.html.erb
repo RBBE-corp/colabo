@@ -29,9 +29,12 @@
   </div>
 </div>
 
+
 <%# card component %>
 <%# card component %>
-<%# <div class="contributions-container"> %>
+
+<%# <div class="spacer"> %>
+<div class="contributions-container">
   <div class ="contribution-card">
     <% @project.contributions.each do |contribution|%>
       <div class="container">
@@ -40,6 +43,7 @@
           <div class="profile-content">
             <ul>
               <li>Status: <%= contribution.status %></li>
+              <li>Username: <%= current_user.first_name %> <%= current_user.last_name %></li>
               <li>Project Name: <%= contribution.project.project_name.capitalize %></li>
               <%# <li>Starts: <%= contribution.start_date %></li>
               <%# <li>Ends: <%= contribution.end_date %></li>
@@ -63,4 +67,5 @@
       </div>
     <% end %>
   </div>
+</div>
 <%# </div> %>
