@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 // Import page-specific CSS files here.
 @import "home";
 
@@ -9,6 +16,55 @@ html, body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden ;
+
+  //// Color Scheme ////
+  // source: https://uigradients.com/#CosmicFusion
+
+  //Our choice //
+  // background: #12c2e9;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  //sublime vivd//
+  // background: #FC466B;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  //kye meh //
+  // background: #8360c3;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // magic //
+  // background: #59C173;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // what lies beyond //
+  // background: #F0F2F0;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #000C40, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #000C40, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Aqua Marine //
+  // background: #1A2980;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Argon upside down // Team favorite
+  background: #03001e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Venice Blue //
+  // background: #085078;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to top, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to top, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Cosmic Fusion //
+  // background: #ff00cc;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to bottom, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to bottom, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 /////////////////////////////////////////////
 
@@ -212,6 +268,12 @@ html, body {
   // background-position: center;
   // padding: 146px 0;
   // background-image: url("passion.png");
+
+  .contributions-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
 
    form {
      display: inline-block;
