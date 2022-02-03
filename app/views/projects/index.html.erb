@@ -20,29 +20,20 @@
 </div>
 <% end %>
 <%# card component %>
-<div class ="card-container">
+
+
+
+<div class ="projects-card-container">
   <% @projects.each do |project|%>
-    <div class="card-list">
-      <div class="image-container">
-
-          <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('help.png') %>">
-
-          <div class="card-stats">
-          <ol>
-            <ul>User: <%= project.user.first_name %> <%= project.user.last_name %></ul>
-            <ul>Project Name: <%= project.project_name.capitalize %></ul>
-            <ul>Description: <%= project.description %></ul>
-            <ul>Required number of contributors: <%= project.people_required %></ul>
-            <ul>Location: <%= project.location %></ul>
-            <ul>Starts: <%= project.start_date %></ul>
-            <ul>Ends: <%= project.end_date %></ul>
-            <ul>Rewards: <%= project.reward_earned %></ul>
-            <ul>Points: <%= project.points_earned %></ul>
-            <ul class="link-button"><%= link_to 'Details (to project#show)', project_path(project), class: 'btn btn-secondary' %></ul>
-            <%# <ul class="link-button"><%= link_to 'Edit Status', edit_sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></ul>
-            <%# <ul class="link-button"><%= link_to 'Remove Contribution', sponsor_contribution_path(contribution), method: :delete, class: 'btn btn-secondary' %></ul>
-          </ol>
-        </div>
+    <div class="project-card">
+      <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('helping.png') %>">
+      <div class="project-card-stats">
+          <ul>
+            <li><bdi><strong><%= project.project_name.capitalize %></strong></bdi></li>
+            <li><strong>Sponsor:</strong> <%= project.user.org_name %></li>
+            <li><strong>Contributors needed:</strong> <%= project.people_required %></li>
+            <li class="link-button"><%= link_to 'Details', project_path(project), class: 'btn btn-secondary' %></li>
+          </ul>
       </div>
     </div>
   <% end %>
