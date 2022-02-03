@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 // Import page-specific CSS files here.
 @import "home";
 
@@ -9,6 +16,55 @@ html, body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden ;
+
+  //// Color Scheme ////
+  // source: https://uigradients.com/#CosmicFusion
+
+  //Our choice //
+  // background: #12c2e9;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  //sublime vivd//
+  // background: #FC466B;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  //kye meh //
+  // background: #8360c3;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #2ebf91, #8360c3);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #2ebf91, #8360c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // magic //
+  // background: #59C173;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #5D26C1, #a17fe0, #59C173);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #5D26C1, #a17fe0, #59C173); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // what lies beyond //
+  // background: #F0F2F0;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #000C40, #F0F2F0);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #000C40, #F0F2F0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Aqua Marine //
+  // background: #1A2980;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #26D0CE, #1A2980);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Argon upside down // Team favorite
+  background: #03001e;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #fdeff9, #ec38bc, #7303c0, #03001e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Venice Blue //
+  // background: #085078;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to top, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to top, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  // Cosmic Fusion //
+  // background: #ff00cc;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to bottom, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to bottom, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 /////////////////////////////////////////////
 
@@ -92,12 +148,13 @@ html, body {
 
 ///////////Main Page Banner Component////////////
 .banner {
-  height: 600px;
+  height: 480px;
   background-image: url("passion.png");
   // background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
   padding: 200px 0;
+  margin-bottom: 26px;
 
    h1 {
      font-family: 'Righteous', sans-serif;
@@ -198,69 +255,72 @@ html, body {
 
 
 ///////////////Contributions Card/////////////////
-.contribution-card-container {
-  padding: 2px;
-  min-width: 0;
-  margin: 10px;
-  display: flex;
-  flex-shrink: inherit;
-  flex-wrap: wrap;
-  flex-direction: row;
-  row-gap: 10px;
-  column-gap: 10px;
-  justify-content: center;
-  background-color: rgb(116, 170, 170);
-  width: 100vw;
 
-  // For Assets //
-  // background-image: url(".png");
-  // background-repeat: no-repeat;
+.contribution-cards-holder {
+  // background-color: rgb(10, 100, 78);
+  padding: 20px;
+  // .contribution-card {
+  //   align-items: center;
+  //   background-color: darkgray;
+  //   margin: 20px;
+  //   width: 700px;
+  // }
 
-  @media (max-width: 100vw) {
-    .card-container {
+  .contribution-card {
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 968px;
+    display: flex;
+    align-items: center;
+    height:146px;
+    background: rgba(225, 225, 226, 0.1);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    border-radius: 8px;
+    // Glassmorphism //
+    /* From https://css.glass */
+    background: rgba(212, 212, 212, 0.38);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.7px);
+    -webkit-backdrop-filter: blur(7.7px);
+    border: 1px solid rgba(212, 212, 212, 0.03);
+  }
+
+   form {
+     display: inline-block;
+     margin-top: -19px
+   }
+
+
+
+    ul {
+      list-style-type: none;
+    }
+
+    // Profile image size, position, radius
+    img {
+      height: 96px;
+      width: 96px;
+      border-radius: 50%;
+      margin-left: 36px;
+    }
+    /////////////////////
+
+    .profile-content {
+      display: flex;
       flex-direction: column;
-
-  }
+      justify-content: flex-start;
+      margin-left: 16px;
+      margin-top: 16px;
+    }
 }
 
-// Image Control Value //
-.project-card {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  background-position: center;
-  background-color: rgb(251, 137, 137);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-  color: #1f1f1f;
-  border-radius: 8px;
-  margin: 16px;
-  display: grid;
-  height: 326px;
-  width: 1326px;
-}
+// //// Project show page contributions /////
+// .contributions-container-projects {
+//   display: grid;
+//   justify-content: center;
+//   flex-direction: row;
+//   background-color: rgba(236, 236, 236, 0.7);
 
-  }
-.profile-image {
- max-width: 400px;
- border-top-right-radius: 8px;
- border-top-left-radius: 8px;
-}
-
-.card-stats {
-  display: block;
-  margin: 12px;
-  margin-top: 24px;
-  margin-bottom: 12px;
-
-  ul {
-    font-size: 20px;
-  }
-
-    .btn {
-    margin-top: 20px;
-  }
-}
-
-  .project-card:hover  {
-    background-color: rgb(180, 180, 180);
-  }
+// }
