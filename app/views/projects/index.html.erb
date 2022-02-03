@@ -31,7 +31,7 @@
           <ul>
             <li><bdi><strong><%= project.project_name.capitalize %></strong></bdi></li>
             <li><strong>Sponsor:</strong> <%= project.user.org_name %></li>
-            <li><strong>Contributors needed:</strong> <%= project.people_required %></li>
+            <li><strong>Contributors needed:</strong> <%= project.people_required %>/ <%= project.contributions.count %></li>
             <li class="link-button"><%= link_to 'Details', project_path(project), class: 'btn btn-secondary' %></li>
           </ul>
       </div>

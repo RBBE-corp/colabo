@@ -5,6 +5,7 @@
     <img class="profile-image" src="<%= @project.photo.attached? ? cl_image_path(@project.photo.key) : image_path('help.png') %>">
     <h3> Description: <%= @project.description %> </h3>
     <p> People required for project: <%= @project.people_required %></p>
+    <p> Total contributors: <%= @project.contributions.count %></p>
     <p> Location: <%= @project.location %> </p>
     <p> Starts: <%= @project.start_date %> </p>
     <p> Ends: <%= @project.end_date %> </p>
