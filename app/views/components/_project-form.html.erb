@@ -3,8 +3,9 @@
     <%= f.input :description %>
     <%= f.input :people_required %>
     <%= f.input :location %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.input :start_date, as: :datetime, start_year: Date.today.year, end_year: Date.today.year + 3 %>
+    <%= f.input :end_date, as: :datetime, start_year: Date.today.year, end_year: Date.today.year + 3 %>
+    <%# html 5 form does not work for the datepicker %>
     <%= f.input :reward_earned %>
     <%= f.input :points_earned %>
     <%= f.input :photo, as: :file, class: "btn btn-primary" %>

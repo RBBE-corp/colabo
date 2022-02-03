@@ -16,14 +16,28 @@ class Project < ApplicationRecord
 
   has_many :contributions
 
-  
+  validate :start_date_cannot_be_after_end_date,
+    :start_date_cannot_be_before_today
+
+  def start_date_cannot_be_after_end_date
+    if start_date > end_date
+      errors.add(:start_date, "can't be after end date")
+    end
+  end
+
+  def start_date_cannot_be_before_today
+    if start_date < DateTime.now
+      errors.add(:start_date, "can't be before today")
+    end
+  end
+
   def self.contributions_count
     left_joins(:contributions)
     .group(:id)
     .order('COUNT(contributions.id) DESC')
     .limit(10)
   end
-  
+
   def find_users
     users_array = []
     contributions.each do | contribution |
@@ -31,11 +45,11 @@ class Project < ApplicationRecord
     end
     users_array
   end
-  
+
   def find_contribution(contributor)
     Contribution.all.where("project_id = ? AND user_id = ?", id, contributor.id).first # SQL Array
   end
-  
+
   #pg search
   include PgSearch::Model
   pg_search_scope :search_by_project_and_location,
