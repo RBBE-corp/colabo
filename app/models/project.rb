@@ -43,4 +43,8 @@ class Project < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+    
+  def accepted
+    accepted = contributions.select { |contribution| contribution.status == "accepted"}
+  end
 end
