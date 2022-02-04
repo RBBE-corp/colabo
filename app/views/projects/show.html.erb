@@ -12,6 +12,7 @@
     <img class="profile-image" src="<%= @project.photo.attached? ? cl_image_path(@project.photo.key) : image_path('help.png') %>">
     <h3> <%= @project.description %> </h3>
     <p> People required for project: <%= @project.people_required %></p>
+    <p> Total contributors: <%= @project.contributions.count %></p>
     <p> Location: <%= @project.location %> </p>
     <p> Starts: <%= @project.start_date %> </p>
     <p> Ends: <%= @project.end_date %> </p>
@@ -51,38 +52,34 @@
 
 
 
-<%# card component %>
-<%# card component %>
-<div class ="card-container">
-  <% @project.contributions.each do |contribution|%>
-    <div class="card-list">
-      <div class="image-container">
-        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
 
-        <div class="card-stats">
-          <ul>
-            <li>Status: <%= contribution.status %></li>
-            <li>Project Name: <%= contribution.project.project_name.capitalize %></li>
-            <li>Starts: <%= contribution.start_date %></li>
-            <li>Ends: <%= contribution.end_date %></li>
-            <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
-            <li class="simple form">
-                <% if contribution.status = :pending %>
-                  <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
-                    <%= f.input :status, :as => :hidden, :input_html => { :value => "accepted" }%>
-                    <%= f.button :submit, "Accept" %>
-                  <% end %>
-                  <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
-                    <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" }%>
-                    <%= f.button :submit, "Deny" %>
-                  <% end %>
-                <% else %>
-                  <li class="link-button"><%= contribution.status %></li>
-                <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+<%# Contribution Cards %>
+
+<div class="contribution-cards-holder">
+      <% @project.contributions.each do |contribution|%>
+      <div class="contribution-card">
+        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+        <div class="profile-content">
+              <ul>
+                <li><strong>Contributor:</strong> <%= contribution.user.first_name%> <%= contribution.user.last_name %></li>
+                <li><strong>Status:</strong> <%= contribution.status %></li>
+                <li class="simple form">
+                    <% if contribution.status = :pending %>
+                      <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
+                        <%= f.input :status, :as => :hidden, :input_html => { :value => "accepted" }%>
+                        <%= f.button :submit, "Accept" %>
+                      <% end %>
+                      <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
+                        <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" }%>
+                        <%= f.button :submit, "Deny" %>
+                      <% end %>
+                    <% else %>
+                      <li class="link-button"><%= contribution.status %></li>
+                    <% end %>
+                <%# <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
+                </li>
+              </ul>
+          </div>
+     </div>
   <% end %>
 </div>
