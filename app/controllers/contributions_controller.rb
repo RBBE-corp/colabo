@@ -19,9 +19,10 @@ class ContributionsController < ApplicationController
 
   def destroy
     @contribution = Contribution.find(params[:id])
+    @project_id = @contribution.project
     authorize @contribution
     @contribution.destroy
-    redirect_to projects_path # don't need project_path
+    redirect_to project_path(@project_id) # don't need project_path
   end
 
   private
