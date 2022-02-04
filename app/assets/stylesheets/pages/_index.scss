@@ -211,10 +211,20 @@ html, body {
    }
 
     .project-title-container {
-      background-color: rgba(95, 158, 160, 0.719);
-      padding: 20px;
+      margin-top: 20px;
+      padding: 28px;
       border-radius: 8px;
-      margin-left: 36px;
+      margin-left: 109px;
+      /* From https://css.glass */
+      background: rgba(95, 158, 160, 0.719);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(1.9px);
+      -webkit-backdrop-filter: blur(1.9px);
+
+        h1 {
+          font-weight: bold;
+          font-size: 36px;
+        }
     }
 
     .search-bar-container {
@@ -225,20 +235,41 @@ html, body {
       margin-top: 20px;
     }
 
+      .title-bar-element {
+        color: white;
+        padding: 8px;
+        width: 208px;
+        display: flex;
+        justify-content: center;
+        height: 104px;
+        margin-top: 20px;
+        /* From https://css.glass */
+        background: rgba(68, 68, 68, 0.59);
+        border-radius: 8px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(1.9px);
+        -webkit-backdrop-filter: blur(1.9px);
+
+        bdi {
+          color: rgb(255, 198, 41);
+        }
+
+      }
+
 }
 //////////////////////////////////////////
 
 .projects-master-container {
-  margin-right: 88px;
-  margin-left: -88px;
+    margin-right: -17px;
+    margin-left: -173px;
 }
 
 /////////////// Projects Card Component ///////////////
 .projects-card-container {
   // background-color: rgb(235, 14, 69);
   padding: 46px;
-  margin-left: 146px;
-  margin-right: 146px;
+  margin-left: 233px;
+  margin-right: 168px;
   margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
@@ -246,7 +277,7 @@ html, body {
   column-gap: 26px;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5.5px);
   -webkit-backdrop-filter: blur(5.5px);

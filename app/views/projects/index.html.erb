@@ -6,6 +6,8 @@
           <h1>Upcoming Projects</h1>
 
     <div class="search-bar-container">
+
+
         <div class="search-bar">
           <% if user_signed_in? %>
         <form class="row g-3">
@@ -28,8 +30,22 @@
 
       </div>
      </div>
-</div>
 
+    <%# <%= @incomplete = Project.all.where( Project.people_required == Project.contributions_count) %>
+
+    <div class="title-bar-element">
+     <p><bdi><strong><%= Project.all.count %></strong></bdi> ongoing projects that you can help with.</p>
+    </div>
+
+    <div class="title-bar-element">
+     <p><bdi><strong><%= User.all.count %></strong></bdi> users helping the community.</p>
+    </div>
+
+    <div class="title-bar-element">
+     <p><bdi><strong><%= Contribution.all.count %></strong></bdi> contibutions being made.</p>
+    </div>
+
+</div>
 
 
 
