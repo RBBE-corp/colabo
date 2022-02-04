@@ -15,8 +15,10 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
+// import { currentLocation} from '../components/currentLocation';
 import { initMapbox } from '../plugins/map';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  // currentLocation();
 })

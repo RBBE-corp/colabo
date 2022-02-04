@@ -15,7 +15,7 @@ class Project < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   has_many :contributions
-
+  
   validate :start_date_cannot_be_after_end_date,
     :start_date_cannot_be_before_today
 
@@ -30,6 +30,7 @@ class Project < ApplicationRecord
       errors.add(:start_date, "can't be before today")
     end
   end
+
 
   def self.contributions_count
     left_joins(:contributions)
@@ -57,6 +58,11 @@ class Project < ApplicationRecord
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
+
+
+  def ends_in_future?
+    end_date > DateTime.now
+  end
     
   def accepted
     accepted = contributions.select { |contribution| contribution.status == "accepted"}

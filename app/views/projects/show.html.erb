@@ -1,9 +1,16 @@
-<div class="container">
-  <div class="project w-50 mx-auto">
-    <h1><%= @project.project_name %></h1>
-    <%# <h2> Project creator: <%= @project.user.user_name, @project.user.org_name  </h2>%>
+<div class="container-show">
+  <h1><%= @project.project_name %></h1>
+  <div class="project">
+
+   <div class="section">
+    <%= link_to user_path(current_user) do %>
+      <i class="fas fa-arrow-left fa-2x"></i>
+    <%end%>
+    </div>
+
+    <div class="section">
     <img class="profile-image" src="<%= @project.photo.attached? ? cl_image_path(@project.photo.key) : image_path('help.png') %>">
-    <h3> Description: <%= @project.description %> </h3>
+    <h3> <%= @project.description %> </h3>
     <p> People required for project: <%= @project.people_required %></p>
     <p> Total contributors: <%= @project.contributions.count %></p>
     <p> Location: <%= @project.location %> </p>
@@ -11,24 +18,39 @@
     <p> Ends: <%= @project.end_date %> </p>
     <p> Rewards: <%= @project.reward_earned %></p>
     <p> Points: <%= @project.points_earned %></p>
+    </div>
 
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-
-    <% if @project.user_id == current_user.id %>
-      <p><%= link_to 'Edit Project', edit_project_path, class: 'btn btn-secondary' %></p>
-      <p><%= link_to 'Delete Project', project_path(@project), method: :delete, class: 'btn btn-secondary', data: {confirm: " Are you sure you want to delete ?"} %></p>
-    <% elsif @project.find_users.include?(current_user) %>
-      <p><%= link_to 'Delete Contribution', contribution_path(@project.find_contribution(current_user)), method: :delete, class: 'btn btn-secondary' %> </p>
-    <% else %>
-      <p><%= link_to 'Contribute to Project', project_contributions_path(@project), method: :post, class: 'btn btn-secondary' %></p>
-    <% end %>
+  <div class="section">
+  <div class="map-container">
+    <div id="map"
+      style="width: 100%; height: 400px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
+
+
+
+  <div class="project-buttons">
+    <% if @project.ends_in_future? %>
+      <% if @project.user_id == current_user.id %>
+        <p><%= link_to 'Edit Project', edit_project_path, class: 'btn btn-secondary' %></p>
+      <% elsif @project.find_users.include?(current_user) %>
+        <p><%= link_to 'Cancel Contribution', contribution_path(@project.find_contribution(current_user)), method: :delete, class: 'btn btn-secondary' %> </p>
+      <% end %>
+    <% end %>
+    <% if @project.user_id != current_user.id && @project.find_users.exclude?(current_user) %>
+      <% if @project.start_date > DateTime.now %>
+        <p><%= link_to 'Contribute to Project', project_contributions_path(@project), method: :post, class: 'btn btn-secondary' %></p>
+      <% else %>
+        <div class="already-started"><p>Project already started, cannot contribute</p></div>
+      <% end %>
+    <% end %>
 </div>
+</div>
+</div>
+
+
 
 
 <%# Contribution Cards %>
