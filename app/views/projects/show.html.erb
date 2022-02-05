@@ -60,34 +60,36 @@
 
 
 <%# Contribution Cards %>
-<div class="section">
-<div class="contribution-cards-holder">
-      <% @project.contributions.first(5).each do |contribution|%>
-      <div class="contribution-card">
-        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
-        <div class="profile-content">
-              <ul>
-                <li><strong>Contributor:</strong> <%= contribution.user.first_name%> <%= contribution.user.last_name %></li>
-                <li><strong>Status:</strong> <%= contribution.status %></li>
-                <li class="simple form">
-                    <% if contribution.status = :pending %>
-                      <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
-                        <%= f.input :status, :as => :hidden, :input_html => { :value => "accepted" }%>
-                        <%= f.button :submit, "Accept" %>
+<% if current_user == @project.user %> 
+  <div class="section">
+  <div class="contribution-cards-holder">
+        <% @project.contributions.first(5).each do |contribution|%>
+        <div class="contribution-card">
+          <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+          <div class="profile-content">
+                <ul>
+                  <li><strong>Contributor:</strong> <%= contribution.user.first_name%> <%= contribution.user.last_name %></li>
+                  <li><strong>Status:</strong> <%= contribution.status %></li>
+                  <li class="simple form">
+                      <% if contribution.status = :pending %>
+                        <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
+                          <%= f.input :status, :as => :hidden, :input_html => { :value => "accepted" }%>
+                          <%= f.button :submit, "Accept" %>
+                        <% end %>
+                        <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
+                          <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" }%>
+                          <%= f.button :submit, "Deny" %>
+                        <% end %>
+                      <% else %>
+                        <li class="link-button"><%= contribution.status %></li>
                       <% end %>
-                      <%= simple_form_for(contribution, as: :contribution, method: :patch, url: sponsor_contribution_path(contribution)) do |f| %>
-                        <%= f.input :status, :as => :hidden, :input_html => { :value => "denied" }%>
-                        <%= f.button :submit, "Deny" %>
-                      <% end %>
-                    <% else %>
-                      <li class="link-button"><%= contribution.status %></li>
-                    <% end %>
-                <%# <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
-                </li>
-              </ul>
-          </div>
-     </div>
-  <% end %>
-  <%# <div class="up"><i class="fas fa-chevron-circle-up fa-3x"></i></div> %>
-</div>
+                  <%# <li class="link-button"><%= link_to 'Details (to contribution#show)', sponsor_contribution_path(contribution), class: 'btn btn-secondary' %></li>
+                  </li>
+                </ul>
+            </div>
+      </div>
+    <% end %>
+    <%# <div class="up"><i class="fas fa-chevron-circle-up fa-3x"></i></div> %>
+  </div>
+<% end %>
 </div>
