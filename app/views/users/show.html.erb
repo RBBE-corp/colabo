@@ -25,6 +25,7 @@
         <%# Profile Container %>
     <%# card component for projects%>
     <div class ="user-projects-card-container">
+          <%= link_to "Start a Project", new_project_path, role: "button", class: "btn btn-secondary px-4 me-md-2 position-absolute top-0 end-79" %>
         <div class="row-title-contribution">
           <h3>Projects I am Sponsoring</h3>
        </div>
@@ -66,6 +67,7 @@
       <div class="tab-content" id="myTabContent" style="min-height: 400px">
           <div class="tab-pane fade show active" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
             <div class ="user-projects-card-container" class="row">
+      <%= link_to "Contribute", projects_path, role: "button", class:  "btn btn-secondary px-4 me-md-2 position-absolute top-0 end-79" %>
     <div class="row-title">
       <h3>My Contributions to Sponsored Projects</h3>
     </div>
