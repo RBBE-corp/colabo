@@ -1,23 +1,25 @@
 
+<div class="user-master-container">
+  <%# Profile Banner Component %>
+  <%# <div class="profile-banner"> %>
+    <div class="container">
+      <div class="image-container">
+        <img src="https://i.pravatar.cc/300" alt="avatar-image">
+      </div>
 
-
-<%# Profile Banner Component %>
-<div class="profile-banner">
-  <div class="container">
-    <div class="image-container">
-      <img src="https://i.pravatar.cc/300" alt="avatar-image">
-    </div>
-
-    <div class="profile-content">
-      <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-      <%# <p>User Id: <%= @user_id %></p>
-        <p><strong>Representing:</strong> <bdi class="content"><%= current_user.org_name %></bdi></p>
-        <p><strong>Sponsoring:</strong> <bdi class="content"><%= current_user.projects.count %></bdi> projects</p>
-        <p><strong>Contribution points:</strong> <bdi class="content"><%= current_user.user_total_points %></bdi> pt</p>
-        <p><strong>Mission:</strong> <%= current_user.mission %></p>
+      <div class="profile-content">
+        <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+        <%# <p>User Id: <%= @user_id %></p>
+          <p><strong>Representing:</strong> <bdi class="content"><%= current_user.org_name %></bdi></p>
+          <p><strong>Sponsoring:</strong> <bdi class="content"><%= current_user.projects.count %></bdi> projects</p>
+          <p><strong>Contribution points:</strong> <bdi class="content"><%= current_user.user_total_points %></bdi> pt</p>
+          <p><strong>Mission:</strong> <%= current_user.mission %></p>
+      </div>
     </div>
   </div>
 </div>
+
+<%# Profile Banner Component %>
 
 <div class="row-title">
   <h1>Projects I am Sponsoring</h1>
