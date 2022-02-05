@@ -65,7 +65,7 @@
 <%# tab content section %>
   <div class="tab-content" id="myTabContent" style="min-height: 400px">
       <div class="tab-pane fade show active" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
-        <div class ="projects-card-container" class="row">
+        <div class ="user-projects-card-container" class="row">
           <% if @user_contributions.empty? %>
             <p> No contributions planned currently </p>
           <% else %>
@@ -87,7 +87,7 @@
         </div>
       </div>
       <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-        <div class ="projects-card-container" class="row">
+        <div class ="user-projects-card-container" class="row">
           <% if @user_contributions.empty? %>
             <p> No pending contribution requests </p>
           <% else %>
@@ -109,7 +109,7 @@
         </div>
       </div>
       <div class="tab-pane fade" id="denied" role="tabpanel" aria-labelledby="denied-tab">
-        <div class ="projects-card-container" class="row">
+        <div class ="user-projects-card-container" class="row">
           <% if @user_contributions.empty? %>
             <p> No contribution requests denied </p>
           <% else %>
