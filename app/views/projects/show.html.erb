@@ -42,12 +42,12 @@
       <% if @project.user_id == current_user.id %>
         <p><%= link_to 'Edit Project', edit_project_path, class: 'btn btn-secondary' %></p>
       <% elsif @project.find_users.include?(current_user) %>
-        <p><%= link_to 'Cancel Contribution', contribution_path(@project.find_contribution(current_user)), method: :delete, class: 'btn btn-secondary' %> </p>
+        <p><%= link_to 'Cancel Contribution Request', contribution_path(@project.find_contribution(current_user)), method: :delete, class: 'btn btn-secondary' %> </p>
       <% end %>
     <% end %>
     <% if @project.user_id != current_user.id && @project.find_users.exclude?(current_user) %>
       <% if @project.start_date > DateTime.now %>
-        <p><%= link_to 'Contribute to Project', project_contributions_path(@project), method: :post, class: 'btn btn-secondary' %></p>
+        <p><%= link_to 'Make Contribution Request', project_contributions_path(@project), method: :post, class: 'btn btn-secondary' %></p>
       <% else %>
         <div class="already-started"><p>Project already started, cannot contribute</p></div>
       <% end %>
@@ -60,10 +60,10 @@
 
 <%# Contribution Cards %>
 <% if current_user == @project.user %>
-  
+
 <div class="container mt-5">
   <div class="bg-white">
-    <h1>My Contributions to Sponsored Projects</h1>
+    <h1>Contribution requests</h1>
   </div>
 
   <%# card component for contributions %>
@@ -112,7 +112,7 @@
                             </li>
                           </ul>
                       </div>
-                  </div> 
+                  </div>
                 <% end %>
               <% end %>
             <% end %>
@@ -148,7 +148,7 @@
                             </li>
                           </ul>
                       </div>
-                  </div> 
+                  </div>
                 <% end %>
               <% end %>
             <% end %>
@@ -184,7 +184,7 @@
                             </li>
                           </ul>
                       </div>
-                  </div> 
+                  </div>
                 <% end %>
               <% end %>
             <% end %>
@@ -194,4 +194,3 @@
   </div>
 </div>
 <% end %>
-
