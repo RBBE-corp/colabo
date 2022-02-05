@@ -17,8 +17,13 @@ import "bootstrap"
 
 // import { currentLocation} from '../components/currentLocation';
 import { initMapbox } from '../plugins/map';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
+  const addressInput = document.getElementById('project_location');
+  if (addressInput) {
+    initAutocomplete();
+  }
   initMapbox();
   // currentLocation();
 })
