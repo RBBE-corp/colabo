@@ -2,32 +2,22 @@
 <%# Banner Component %>
 
 <div class="projects-banner">
-      <div class="project-title-container">
-          <h1>Upcoming Projects</h1>
-
+  <div class="project-title-container">
+    <h1>Upcoming Projects</h1>
     <div class="search-bar-container">
-
-
-        <div class="search-bar">
-          <% if user_signed_in? %>
-        <form class="row g-3">
-            <div class="col-auto">
-              <%= form_tag projects_path, method: :get do %>
-                    <%= text_field_tag :query,
-                    params[:query],
-                    class: "form-control",
-                    placeholder: "Find projects"
-                    %>
-             </div>
-
-            <div class="col-auto">
-              <%= submit_tag "Search", class: "btn btn-primary mb-3" %>
-            </div>
-
-         </form>
-              <% end %>
-          <% end %>
-
+      <div class="search-bar">
+        <%= form_tag projects_path,class: "row g-3", method: :get do %>
+          <div class="col-auto">
+                  <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control",
+                  placeholder: "Find projects"
+                  %>
+          </div>
+          <div class="col-auto">
+            <%= submit_tag "Search", class: "btn btn-primary mb-3" %>
+          </div>
+        <% end %>
       </div>
      </div>
 
