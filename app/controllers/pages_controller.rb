@@ -14,8 +14,8 @@ class PagesController < ApplicationController
     if Rails.env.production?
       city = request.location.city
       if city
-        @projects = Project.near(city, 10)
-        @markers = @projects.geocoded.map do |project|
+        projects = Project.near(city, 10)
+        @markers = projects.geocoded.map do |project|
           {
             lat: project.latitude,
             lng: project.longitude
