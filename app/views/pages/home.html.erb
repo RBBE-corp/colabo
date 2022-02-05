@@ -1,6 +1,20 @@
-  <div class="w-100 bg-white" >
-  <div class="container bg-white col-xxl-8 px-4 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+<div class="w-100 bg-white" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= image_path 'clean_park_1.jpg'%>)">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="px-4 my-5 text-center">
+    <%# <img class="d-block mx-auto mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> %>
+      <span class= "d-block mx-auto mb-4 ms-5"> <%= image_tag "logo_lightblue.svg", :width => '300', :height => '240' %></span>
+    <%# <h1 class="display-5 fw-bold">Colabo</h1> %>
+    <div class="col-lg-6 mx-auto">
+      <h2 class="slogan-text" class="lead mb-4" style="text-shadow: 1px 1px white">Cultivating a Caring Community</h2>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <%# <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> %>
+        <%= link_to "Start a Project", new_project_path, role: "button", class: "btn btn-primary px-4 me-md-2"%>
+        <%= link_to "Contribute", projects_path, role: "button", class: "btn btn-outline-secondary px-4"%>
+      </div>
+    </div>
+  </div>
+    <!--<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-10 col-sm-8 col-lg-6">
         <%= image_tag image_path('help.png'), alt: "help" %>
       </div>
@@ -28,15 +42,15 @@
         </div>
 
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
-<div class="container bg-white" style= "margin-top: 50px">
+<div class="container" style= "margin-top: 50px">
   <div class="box">
    <div class="text-center mb-3">
     <span class="h5 inline-block text-secondary fw-bold px-3 py-1" style="background: rgb(231,233,237); border-radius:8px">Colabo Social - How it works</span>
   </div>
-  <div class="how_we_work shadow py-5 px-3 mb-5 rounded">
+  <div class="how_we_work shadow py-5 px-3 mb-5 bg-white">
     <h3 class="text-center fw-bold">Create, and Contribute to, Sponsored Community Events</h3>
     <div class="row justify-content-center">
       <div class="col-sm-6 col-md-4 col-xs-12 text-center">
@@ -78,7 +92,7 @@
       <span class="h5 inline-block text-secondary fw-bold px-3 py-1" style="background: rgb(231,233,237); border-radius:8px">Our Featured Projects</span>
     </div>
     <div class="row justify-content-center">
-      <div class="wrapper">
+      <div class="wrapper how_we_work shadow py-5 px-3 mb-5">
         <div class="carousel">
         <% @projects.each do |project| %>
           <div class="carousel__item">
@@ -96,18 +110,28 @@
       </div>
     </div>
   </div>
+
+  <div class="w-100" style="margin: 100px auto">
+    <div class="text-center mb-3">
+      <span class="h5 inline-block text-secondary fw-bold px-3 py-1" style="background: rgb(231,233,237); border-radius:8px">Find Sponsored Projects Near You</span>
+    </div>
+    <div class="how_we_work shadow py-5 px-3 mb-5">
+      <div class="row justify-content-center">
+        <div class="map-container row justify-content-center">
+          <div id="map"
+            style="width: 50%; height: 600px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="map-container row justify-content-center">
-  <div id="map"
-     style="width: 50%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-</div>
 <%# if current user has a project show the contributions page %>
-<% if current_user && current_user.sponsor? %>
+<!-- <% if current_user && current_user.sponsor? %>
   <p><%= link_to 'Contributions', sponsor_contributions_path %></p>
   <p><%= link_to 'Projects', projects_path %></p>
   <p><%= link_to 'User Profile', user_path(current_user) %></p>
-<% end %>
+<% end %> -->
