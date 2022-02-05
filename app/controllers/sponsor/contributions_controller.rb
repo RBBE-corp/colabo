@@ -15,10 +15,10 @@ class Sponsor::ContributionsController < ApplicationController
     case contribution_params[:status]
     when "accepted"
       @contribution.accepted!
-      redirect_to sponsor_contributions_path, notice: "Contribution accepted."
+      redirect_to user_path, notice: "Contribution accepted."
     when "denied"
       @contribution.denied!
-      redirect_to sponsor_contributions_path, notice: "Contribution denied."
+      redirect_to user_path, notice: "Contribution denied."
     end
   end
 
