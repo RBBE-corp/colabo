@@ -24,7 +24,7 @@
 </div>
 
 <%# card component for projects%>
-<div class ="projects-card-container">
+<div class ="user-projects-card-container">
   <% @user_projects.each do |project|%>
     <div class="project-card">
       <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('helping.png') %>">
