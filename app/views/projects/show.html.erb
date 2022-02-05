@@ -13,9 +13,8 @@
     </div>
 
     <div class="description col-12 col-md-4">
-    <h3> <%= @project.description %> </h3>
-    <br>
     <img class="profile-image" src=<%= @project.photo.attached? ? cl_image_path(@project.photo.key) : image_path('help.png') %>>
+    <h3> <%= @project.description %> </h3>
     </div>
 
   <div class="col-12 col-md-4">
