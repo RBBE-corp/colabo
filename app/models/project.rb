@@ -17,7 +17,7 @@ class Project < ApplicationRecord
   has_many :contributions
 
   validate :start_date_cannot_be_after_end_date,
-    :start_date_cannot_be_before_today
+     :start_date_cannot_be_before_today
 
   def start_date_cannot_be_after_end_date
     if start_date > end_date
