@@ -60,6 +60,8 @@
 
 
 <%# Contribution Cards %>
+<% if current_user == @project.user %>
+  
 <div class="section">
 <div class="contribution-cards-holder">
       <% @project.contributions.first(5).each do |contribution|%>
@@ -90,4 +92,6 @@
   <% end %>
   <%# <div class="up"><i class="fas fa-chevron-circle-up fa-3x"></i></div> %>
 </div>
+<% end %>
+
 </div>
