@@ -9,6 +9,9 @@ body {
 
 h2.slogan-text {
   color: blue;
-  font-size: 48px;
+  text-shadow: 4px 4px 4px white;
+  font-size: 32px;
   font-style: italic;
+  background-color: rgba($color: white, $alpha: 0.3);
+  border-radius: 10px;
 }
