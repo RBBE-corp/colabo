@@ -15,6 +15,7 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
+// import { currentLocation} from '../components/currentLocation';
 import { initMapbox } from '../plugins/map';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
@@ -24,4 +25,5 @@ document.addEventListener('turbolinks:load', () => {
     initAutocomplete();
   }
   initMapbox();
+  // currentLocation();
 })

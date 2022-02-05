@@ -1,0 +1,29 @@
+.project {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: .10fr 1fr 1fr;
+  box-sizing: border-box;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 28px;
+}
+
+h1 {
+  padding-top: 8px;
+  text-align: center;
+}
+
+.map-container {
+padding-left: 28px;
+}
+
+.section-map {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.project-buttons {
+  width: 200px;
+  padding-left: 28px;
+}

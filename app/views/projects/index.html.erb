@@ -1,40 +1,69 @@
 
 <%# Banner Component %>
-<div class="banner">
-  <div class="container">
-    <h1>Index Page for Projects</h1>
-    <p>All the projects will be listed here</p>
-    <p>Edit Code to show just the current_user's projects</p>
-  </div>
-</div>
-<% if user_signed_in? %>
-<div class="container search-bar">
-  <%= form_tag projects_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find projects"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
-<% end %>
-<%# card component %>
+
+<div class="projects-banner">
+      <div class="project-title-container">
+          <h1>Upcoming Projects</h1>
+
+    <div class="search-bar-container">
 
 
+        <div class="search-bar">
+          <% if user_signed_in? %>
+        <form class="row g-3">
+            <div class="col-auto">
+              <%= form_tag projects_path, method: :get do %>
+                    <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Find projects"
+                    %>
+             </div>
 
-<div class ="projects-card-container">
-  <% @projects.each do |project|%>
-    <div class="project-card">
-      <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('helping.png') %>">
-      <div class="project-card-stats">
-          <ul>
-            <li><bdi><strong><%= project.project_name.capitalize %></strong></bdi></li>
-            <li><strong>Sponsor:</strong> <%= project.user.org_name %></li>
-            <li><strong>Contributors needed:</strong> <%= project.people_required %>/ <%= project.contributions.count %></li>
-            <li class="link-button"><%= link_to 'Details', project_path(project), class: 'btn btn-secondary' %></li>
-          </ul>
+            <div class="col-auto">
+              <%= submit_tag "Search", class: "btn btn-primary mb-3" %>
+            </div>
+
+         </form>
+              <% end %>
+          <% end %>
+
       </div>
+     </div>
+
+    <%# <%= @incomplete = Project.all.where( Project.people_required == Project.contributions_count) %>
+
+    <div class="title-bar-element">
+     <p><bdi><strong><%= Project.all.count %></strong></bdi> ongoing projects that you can help with.</p>
     </div>
-  <% end %>
+
+    <div class="title-bar-element">
+     <p><bdi><strong><%= User.all.count %></strong></bdi> users helping the community.</p>
+    </div>
+
+    <div class="title-bar-element">
+     <p><bdi><strong><%= Contribution.all.count %></strong></bdi> contibutions being made.</p>
+    </div>
+
+</div>
+
+
+
+<%# card component %>
+<div class ="projects-master-container">
+  <div class ="projects-card-container">
+    <% @projects.each do |project|%>
+      <div class="project-card">
+        <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('helping.png') %>">
+        <div class="project-card-stats">
+            <ul>
+              <li><bdi><strong><%= project.project_name.capitalize %></strong></bdi></li>
+              <li><strong>Sponsor:</strong> <%= project.user.org_name %></li>
+              <li><strong>Contributors needed: </strong><%= project.contributions.count %>/<%= project.people_required %></li>
+              <li class="link-button"><%= link_to 'Details', project_path(project), class: 'btn btn-secondary' %></li>
+            </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
