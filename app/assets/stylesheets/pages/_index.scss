@@ -292,6 +292,13 @@ html, body {
       .card-container {
         flex-direction: column;
     }
+
+    .profile-image {
+      height: 260px;
+      width: 360px;
+      object-fit: cover;
+
+    }
   }
 
 
