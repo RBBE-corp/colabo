@@ -293,7 +293,7 @@ project = Project.create!(
   reward_earned: "A hotel room with lunch, dinner, and breakfast.",
   points_earned: 15
 )
-file = URI.open('https://images.unsplash.com/photo-1549744504-a3cefc5c3bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHRyZWUlMjBwbGFudGluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60')
+file = URI.open('https://www.aeon.info/ef/common/images/content/greening_activities/domestic/kimitsu_chiba_2021.png')
 project.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 puts project.photo.attached?
 project.save!
