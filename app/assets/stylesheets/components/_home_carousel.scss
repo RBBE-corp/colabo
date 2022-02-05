@@ -32,7 +32,7 @@ $slide-change-timing: 3; // percentage of total animation cycle
   align-items: center;
   position: absolute;
   width: 100%;
-  padding: 0 12px;
+  padding: 0 0;
   opacity: 0;
   filter: drop-shadow(0 2px 2px #555);
   will-change: transform, opacity;
