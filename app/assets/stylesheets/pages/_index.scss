@@ -82,24 +82,24 @@ html, body {
 
 
   // Gray Container
-    // .container {
-    // width: 968px;
-    // display: flex;
-    // justify-content: center;
-    // // affects child class (img)
-    // align-items: center;
-    // margin-top: -146px;
-    // background: rgba(105, 105, 105, 0.7);
-    // padding: 62px;
-    // height:346px;
-    // }
+    .container {
+    width: 968px;
+    display: flex;
+    justify-content: center;
+    // affects child class (img)
+    align-items: center;
+    margin-top: -146px;
+    background: rgba(105, 105, 105, 0.7);
+    padding: 62px;
+    height:346px;
+    }
 
     // Profile image size, position, radius
-    // img {
-    //   height: 126px;
-    //   width: 126px;
-    //   border-radius: 50%;
-    // }
+    img {
+      height: 126px;
+      width: 126px;
+      border-radius: 50%;
+    }
     /////////////////////
 
     .profile-content {
@@ -149,8 +149,32 @@ html, body {
 
 
 ///////// USER PROFILE STUFF  ////////
-.user-master-container {
-background-color: rgba(255, 255, 255, 0.897);
+
+.profile-page-container {
+    border-radius: 8px;
+    padding: 32px;
+    margin-top: 42px;
+    margin-left: 86px;
+    width: 389px;
+
+
+    /* height: 89vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: -363px;
+
+
+    background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    // .profile-content {
+    //   padding: 8px;
+    // }
+}
+
           /////////////// Projects Card Component ///////////////
           .user-projects-card-container {
             // background-color: rgb(235, 14, 69);
@@ -169,7 +193,8 @@ background-color: rgba(255, 255, 255, 0.897);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(5.5px);
             -webkit-backdrop-filter: blur(5.5px);
-            }
+          }
+
 
               ul {
                 display: block;
@@ -181,16 +206,18 @@ background-color: rgba(255, 255, 255, 0.897);
                   flex-direction: column;
               }
 
-              // .profile-image {
-              //   height: 260px;
-              //   width: 360px;
-              //   object-fit: cover;
-              // }
+              .profile-image {
+                height: 260px;
+                width: 360px;
+                object-fit: cover;
+              }
 
               .image-container {
-                height: 146px;
-                width: 146px;
-                border-radius: 50%;
+                width: 100%;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 26px;
                  img {
                    height: 146px;
                    width: 146px;
@@ -198,57 +225,57 @@ background-color: rgba(255, 255, 255, 0.897);
                  }
               }
 
-              // Image Control Value //
-              .project-card {
-                margin-left: auto;
-                margin-right: auto;
-                background-position: center;
-                background-color: rgb(255, 255, 255);
-                box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
-                color: #1f1f1f;
-                border-radius: 8px;
-                margin: 8px;
-                height: auto;
-                width: 360px;
-                /* From https://css.glass */
-                background: rgba(70, 68, 68, 0.52);
-                border-radius: 16px;
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                backdrop-filter: blur(7.7px);
-                -webkit-backdrop-filter: blur(7.7px);
-                color: aliceblue;
-              }
+/////////////////////////////////////////////
+// Image Control Value //
+    .project-card {
+      margin-left: auto;
+      margin-right: auto;
+      background-position: center;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+      color: #1f1f1f;
+      border-radius: 8px;
+      margin: 8px;
+      height: auto;
+      width: 360px;
+      /* From https://css.glass */
+      background: rgba(70, 68, 68, 0.52);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(7.7px);
+      -webkit-backdrop-filter: blur(7.7px);
+      color: aliceblue;
+    }
 
-              .profile-image {
-              max-width: 360px;
-              //fixes slight image overlay issue //
-              border-top-right-radius: 8px;
-              border-top-left-radius: 8px;
-              }
+    .profile-image {
+    max-width: 360px;
+    max-height: 240px;
 
-              .project-card-stats {
-                /* margin-bottom: 29px; */
-                margin-top: 18px;
-                margin-left: 8px;
-                margin-left: 2px;
-                margin-bottom: 8px;
-                font-family: sans-serif;
-                font-size: 16px;
-              }
+    //fixes slight image overlay issue //
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    }
 
-
-                bdi {
-                    color: rgb(255, 198, 41);
-                  }
-
-                .link-button {
-                  display: flex;
-                  justify-content: end;
-                  margin-right: 8px;
-                }
+    .project-card-stats {
+      /* margin-bottom: 29px; */
+      margin-top: 18px;
+      margin-left: 8px;
+      margin-left: 2px;
+      margin-bottom: 8px;
+      font-family: sans-serif;
+      font-size: 16px;
 
 
-            }
+      bdi {
+          color: rgb(255, 198, 41);
+        }
+
+      .link-button {
+        display: flex;
+        justify-content: end;
+        margin-right: 8px;
+      }
+
 }
 
 //////////////////////////////////////////////
@@ -404,7 +431,6 @@ background-color: rgba(255, 255, 255, 0.897);
       height: 260px;
       width: 360px;
       object-fit: cover;
-
     }
   }
 
@@ -536,9 +562,10 @@ background-color: rgba(255, 255, 255, 0.897);
       justify-content: flex-start;
       margin-left: 16px;
       margin-top: 16px;
-    }
-}
 
+    }
+  }
+}
 // //// Project show page contributions /////
 // .contributions-container-projects {
 //   display: grid;

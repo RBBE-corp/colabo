@@ -1,136 +1,137 @@
 
-<div class="user-master-container">
-  <%# Profile Banner Component %>
-  <%# <div class="profile-banner"> %>
-    <div class="container">
-      <div class="image-container">
-        <img src="https://i.pravatar.cc/300" alt="avatar-image">
-      </div>
 
-      <div class="profile-content">
-        <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-        <%# <p>User Id: <%= @user_id %></p>
-          <p><strong>Representing:</strong> <bdi class="content"><%= current_user.org_name %></bdi></p>
-          <p><strong>Sponsoring:</strong> <bdi class="content"><%= current_user.projects.count %></bdi> projects</p>
-          <p><strong>Contribution points:</strong> <bdi class="content"><%= current_user.user_total_points %></bdi> pt</p>
-          <p><strong>Mission:</strong> <%= current_user.mission %></p>
+
+
+<%#
+    <div class="row-title">
+      <h1>Projects I am Sponsoring</h1>
+    </div> %>
+
+        <%# Profile Container %>
+        <div class="profile-page-container">
+          <div class="image-container">
+            <img src="https://i.pravatar.cc/300" alt="avatar-image">
+          </div>
+
+          <div class="profile-content">
+            <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+            <%# <p>User Id: <%= @user_id %></p>
+              <p><strong>Representing:</strong> <bdi class="content"><%= current_user.org_name %></bdi></p>
+              <p><strong>Sponsoring:</strong> <bdi class="content"><%= current_user.projects.count %></bdi> projects</p>
+              <p><strong>Contribution points:</strong> <bdi class="content"><%= current_user.user_total_points %></bdi> pt</p>
+              <p><strong>Mission:</strong> <%= current_user.mission %></p>
+          </div>
+        </div>
+        <%# Profile Container %>
+    <%# card component for projects%>
+    <div class ="user-projects-card-container">
+      <% @user_projects.each do |project|%>
+        <div class="project-card">
+          <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('helping.png') %>">
+          <div class="project-card-stats">
+              <ul>
+                <li><bdi><strong><%= project.project_name.capitalize %></strong></bdi></li>
+                <li><strong>Starts:</strong> <%= project.start_date.strftime("%d/%m/%y %H:%M")  %></li>
+                <li><strong>Ends:</strong> <%= project.end_date.strftime("%d/%m/%y %H:%M")  %></li>
+                <li><strong>Contributors needed:</strong> <%= project.people_required %></li>
+                <li class="link-button"><%= link_to 'Details', project_path(project), class: 'btn btn-secondary' %></li>
+              </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+
+
+
+    <div class="row-title">
+      <h1>My Contributions to Sponsored Projects</h1>
+    </div>
+
+    <%# card component for contributions %>
+    <div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="accepted projects">
+          <button class="nav-link active" id="accepted-tab" data-bs-toggle="tab" data-bs-target="#accepted" type="button" role="tab" aria-controls="accepted" aria-selected="true">Accepted</button>
+        </li>
+        <li class="nav-item" role="pending projects">
+          <button class="nav-link" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending" type="button" role="tab" aria-controls="pending" aria-selected="false">Requests Pending</button>
+        </li>
+        <li class="nav-item" role="denied projects">
+          <button class="nav-link" id="denied-tab" data-bs-toggle="tab" data-bs-target="#denied" type="button" role="tab" aria-controls="denied" aria-selected="false">Requests Denied</button>
+        </li>
+      </ul>
+
+    <%# tab content section %>
+      <div class="tab-content" id="myTabContent" style="min-height: 400px">
+          <div class="tab-pane fade show active" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
+            <div class ="user-projects-card-container" class="row">
+              <% if @user_contributions.empty? %>
+                <p> No contributions planned currently </p>
+              <% else %>
+                <% @user_contributions.each do |contribution| %>
+                  <% if contribution.status == :accepted.to_s %>
+                      <div class="project-card">
+                        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+                        <div class="project-card-stats">
+                          <ol>
+                            <ul><strong>Project</strong> <%= contribution.project.project_name.capitalize %></ul>
+                            <ul><strong>Status:</strong> <%= contribution.status %></ul>
+                            <ul class ="btn"><%= link_to 'Project detail', project_path(contribution.project_id), :class => 'btn btn-secondary' %></ul>
+                          </ol>
+                        </div>
+                      </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+            <div class ="user-projects-card-container" class="row">
+              <% if @user_contributions.empty? %>
+                <p> No pending contribution requests </p>
+              <% else %>
+                <% @user_contributions.each do |contribution| %>
+                  <% if contribution.status == :pending.to_s %>
+                      <div class="project-card">
+                        <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+                        <div class="project-card-stats">
+                          <ol>
+                            <ul><strong>Project</strong> <%= contribution.project.project_name.capitalize %></ul>
+                            <ul><strong>Status:</strong> <%= contribution.status %></ul>
+                            <ul class ="btn"><%= link_to 'Project detail', project_path(contribution.project_id), :class => 'btn btn-secondary' %></ul>
+                          </ol>
+                        </div>
+                      </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="denied" role="tabpanel" aria-labelledby="denied-tab">
+            <div class ="user-projects-card-container" class="row">
+              <% if @user_contributions.empty? %>
+                <p> No contribution requests denied </p>
+              <% else %>
+                <% @user_contributions.each do |contribution| %>
+                  <% if contribution.status == :denied.to_s %>
+                    <div class="project-card">
+                      <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
+                      <div class="project-card-stats">
+                        <ol>
+                          <ul><strong>Project</strong> <%= contribution.project.project_name.capitalize %></ul>
+                          <ul><strong>Status:</strong> <%= contribution.status %></ul>
+                          <ul class ="btn"><%= link_to 'Project detail', project_path(contribution.project_id), :class => 'btn btn-secondary' %></ul>
+                        </ol>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
       </div>
     </div>
-  </div>
 </div>
 
-<%# Profile Banner Component %>
-
-<div class="row-title">
-  <h1>Projects I am Sponsoring</h1>
-</div>
-
-<%# card component for projects%>
-<div class ="user-projects-card-container">
-  <% @user_projects.each do |project|%>
-    <div class="project-card">
-      <img class="profile-image" src="<%= project.photo.attached? ? cl_image_path(project.photo.key) : image_path('helping.png') %>">
-      <div class="project-card-stats">
-          <ul>
-            <li><bdi><strong><%= project.project_name.capitalize %></strong></bdi></li>
-            <li><strong>Starts:</strong> <%= project.start_date.strftime("%d/%m/%y %H:%M")  %></li>
-            <li><strong>Ends:</strong> <%= project.end_date.strftime("%d/%m/%y %H:%M")  %></li>
-            <li><strong>Contributors needed:</strong> <%= project.people_required %></li>
-            <li class="link-button"><%= link_to 'Details', project_path(project), class: 'btn btn-secondary' %></li>
-          </ul>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-
-
-
-<div class="row-title">
-  <h1>My Contributions to Sponsored Projects</h1>
-</div>
-
-<%# card component for contributions %>
-<div>
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="accepted projects">
-      <button class="nav-link active" id="accepted-tab" data-bs-toggle="tab" data-bs-target="#accepted" type="button" role="tab" aria-controls="accepted" aria-selected="true">Accepted</button>
-    </li>
-    <li class="nav-item" role="pending projects">
-      <button class="nav-link" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending" type="button" role="tab" aria-controls="pending" aria-selected="false">Requests Pending</button>
-    </li>
-    <li class="nav-item" role="denied projects">
-      <button class="nav-link" id="denied-tab" data-bs-toggle="tab" data-bs-target="#denied" type="button" role="tab" aria-controls="denied" aria-selected="false">Requests Denied</button>
-    </li>
-  </ul>
-
-<%# tab content section %>
-  <div class="tab-content" id="myTabContent" style="min-height: 400px">
-      <div class="tab-pane fade show active" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
-        <div class ="user-projects-card-container" class="row">
-          <% if @user_contributions.empty? %>
-            <p> No contributions planned currently </p>
-          <% else %>
-            <% @user_contributions.each do |contribution| %>
-              <% if contribution.status == :accepted.to_s %>
-                  <div class="project-card">
-                    <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
-                    <div class="project-card-stats">
-                      <ol>
-                        <ul><strong>Project</strong> <%= contribution.project.project_name.capitalize %></ul>
-                        <ul><strong>Status:</strong> <%= contribution.status %></ul>
-                        <ul class ="btn"><%= link_to 'Project detail', project_path(contribution.project_id), :class => 'btn btn-secondary' %></ul>
-                      </ol>
-                    </div>
-                  </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-        <div class ="user-projects-card-container" class="row">
-          <% if @user_contributions.empty? %>
-            <p> No pending contribution requests </p>
-          <% else %>
-            <% @user_contributions.each do |contribution| %>
-              <% if contribution.status == :pending.to_s %>
-                  <div class="project-card">
-                    <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
-                    <div class="project-card-stats">
-                      <ol>
-                        <ul><strong>Project</strong> <%= contribution.project.project_name.capitalize %></ul>
-                        <ul><strong>Status:</strong> <%= contribution.status %></ul>
-                        <ul class ="btn"><%= link_to 'Project detail', project_path(contribution.project_id), :class => 'btn btn-secondary' %></ul>
-                      </ol>
-                    </div>
-                  </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="denied" role="tabpanel" aria-labelledby="denied-tab">
-        <div class ="user-projects-card-container" class="row">
-          <% if @user_contributions.empty? %>
-            <p> No contribution requests denied </p>
-          <% else %>
-            <% @user_contributions.each do |contribution| %>
-              <% if contribution.status == :denied.to_s %>
-                <div class="project-card">
-                  <img class="profile-image" src="https://picsum.photos/460/250" alt="Place-holder-images">
-                  <div class="project-card-stats">
-                    <ol>
-                      <ul><strong>Project</strong> <%= contribution.project.project_name.capitalize %></ul>
-                      <ul><strong>Status:</strong> <%= contribution.status %></ul>
-                      <ul class ="btn"><%= link_to 'Project detail', project_path(contribution.project_id), :class => 'btn btn-secondary' %></ul>
-                    </ol>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-  </div>
 </div>
