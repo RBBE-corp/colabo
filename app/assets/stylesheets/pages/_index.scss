@@ -151,6 +151,7 @@ html, body {
 ///////// USER PROFILE STUFF  ////////
 
 .profile-page-container {
+    color: white;
     border-radius: 8px;
     padding: 32px;
     margin-top: 42px;
@@ -160,24 +161,30 @@ html, body {
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: -472px;
+    background-color: rgb(102, 102, 102);
+    /* From https://css.glass */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.2px);
+    -webkit-backdrop-filter: blur(1.2px);
 
-
-    background: #bdc3c7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-    // .profile-content {
-    //   padding: 8px;
-    // }
 }
+
+.nav-tabs {
+  background-color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  margin-left: 528px;
+  width: 500px;
+  padding: 8px
+}
+
 
           /////////////// Projects Card Component ///////////////
           .user-projects-card-container {
             // background-color: rgb(235, 14, 69);
             padding: 46px;
-            margin-left: 575px;
-            margin-right: 57px;
+            margin-left: 527px;
+            margin-right: 120px;
             // margin-top: 24px;
             margin-bottom: 24px;
             display: flex;
@@ -185,14 +192,16 @@ html, body {
             row-gap: 26px;
             column-gap: 26px;
             /* From https://css.glass */
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.486);
             border-radius: 8px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(5.5px);
             -webkit-backdrop-filter: blur(5.5px);
           }
 
-
+          bdi {
+           color: rgb(255, 198, 41);
+           }
               ul {
                 display: block;
                 list-style-type: none;
@@ -211,7 +220,6 @@ html, body {
 
               .image-container {
                 width: 100%;
-                background-color: white;
                 display: flex;
                 justify-content: center;
                 margin-bottom: 26px;
@@ -273,7 +281,18 @@ html, body {
         margin-right: 8px;
       }
 
+
 }
+
+.project-card:hover  {
+  /* From https://css.glass */
+    background: rgba(52, 52, 52, 0.73);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.2px);
+    -webkit-backdrop-filter: blur(14.2px);
+  }
+
 
 //////////////////////////////////////////////
 
