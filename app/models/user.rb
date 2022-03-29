@@ -7,6 +7,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  before_validation :def_total_points, on: :create
+
+  def def_total_points
+    self.total_points = 0
+  end
+
   def sponsor?
     projects.count > 0
   end
